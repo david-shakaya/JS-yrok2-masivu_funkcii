@@ -121,14 +121,35 @@ for (const login of log) {
   message = 'Пользователь НЕ найден';
 }
 console.log(message);
+ *
+ *
+ * 
+ * - Вариант решения через метод includes*/
+/* 
+const log = ['wewerw', 'sdfdf', 'ff3', 'sfsfww32'];
+const loginTofind = 'sdfdf';
+let message;
+if (log.includes(loginTofind) === true) {
+  console.log('Пользователь Найден');
+} else {
+  console.log('Пользователь НЕ найден');
+}
+*
+*
+*
+*
+*--------------------------ЗАДАЧА
+* - Напиши скрипт поиска самого маленького числа в масиве
+*- При условии что числа не повторяются 
  */
 
-/* for (let i = 0; i < log.length; i += 1) {
-  if (log[i].includes(loginTofind) === true) {
-      console.log(`Пользовател с логином ${loginTofind} найден`);
-      
-  } else {
-    console.log(`Пользователя с таким ${loginTofind} логином  НЕТ`);
+/* const numbers = [100, 6, 10, 20, 5, 54];
+let min = numbers[0];
+
+for (const number of numbers) {
+  if (min > number) {
+    min = number;
   }
 }
+console.log(min);
  */
