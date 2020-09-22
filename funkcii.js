@@ -86,8 +86,14 @@ console.log('Четное!', total);
 *
 *
 *
+*
+-----------------------ЗАДАЧА
+*Напиши скрипт поиска логина
+*-Если логин не правилный, вывести сообщение Пользователь НЕ найден
+*-Если логин верный,"Пользователь Найден".
 */
-const log = ['wewerw', 'sdfdf', 'ff3', 'sfsfww32'];
+// ВАРИАНТ ЧЕРЕЗ for
+/* const log = ['wewerw', 'sdfdf', 'ff3', 'sfsfww32'];
 const loginTofind = 'ff3';
 let message;
 
@@ -96,9 +102,26 @@ for (let i = 0; i < log.length; i += 1) {
     message = 'Пользователь Найден';
     break;
   }
-  message = 'YTVF';
+  message = 'Пользователь НЕ найден';
+}
+console.log(message); 
+*
+*
+*
+* - ВАРИАНТ ЧЕРЕЗ for...of*/
+
+/* const log = ['wewerw', 'sdfdf', 'ff3', 'sfsfww32'];
+const loginTofind = 'sdfdf';
+let message;
+for (const login of log) {
+  if (loginTofind === login) {
+    message = 'Пользователь Найден';
+    break;
+  }
+  message = 'Пользователь НЕ найден';
 }
 console.log(message);
+ */
 
 /* for (let i = 0; i < log.length; i += 1) {
   if (log[i].includes(loginTofind) === true) {
