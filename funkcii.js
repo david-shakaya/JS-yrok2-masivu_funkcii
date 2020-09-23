@@ -233,4 +233,25 @@ const title = 'У Лукоморья дуб зеленый И 10 БЕРЕЗ';
 
 const slug = title.toLowerCase().split(' ').join('-');
 console.log(slug);
+ *
+ *
+ * 
+ * 
+ * 
+ * 
+ * ---------------------------------------Задача
+ *  - Напиши скрипт который считает сумму элементов двух масивов.
+ * --- Метод .concat() - сшивает 2 и более масивов с цифрами в один
+ */
+/* 
+const numbersOne = [23, 2, 10, 5];
+const numbersTwo = [10, 5, 5];
+
+const arrs = numbersOne.concat(numbersTwo);
+let total = 0;
+
+for (const arr of arrs) {
+  total += arr;
+}
+console.log(total);
  */
