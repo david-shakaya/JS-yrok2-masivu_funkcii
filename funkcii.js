@@ -270,4 +270,78 @@ console.table(cart);
 // Заменяем элемент масива >>> .splice(index - элемента, количество удаляемых елементов, элементы которые добавляем);
 /* const cart = ['карточка-1', 'карточка-2', 'карточка-3'];
 const metod = cart.splice(1, 0, 'новая карта', 'новая карта-2');
-console.table(cart); */
+console.table(cart); 
+*
+*
+*
+*-----------------------------------------------------|  ФУНКЦИИ  |----------------------------------------
+*/
+/* //  >>>>> Указываем параметры (a, b, c) при обьявлении функции
+const add = function (a, b, c) {
+  //  >>>>> Указываем что должны сделать параметры a + b * c. И возвращаем результат return
+  console.log(a * b);
+  return a + b * c;
+};
+//  >>>>> Обявляем переменную "const f1 =" и вызываем функцию "add(5, 5, 2)".Это аргументы (5, 5, 2)
+const f1 = add(5, 5, 2);
+console.log(f1);
+//
+//
+// >>>>> Можно записать короче, не обьявляя переменную.
+//console.log(add(5, 5, 2));
+ */
+/*
+ *
+ *
+ *  >>>>> Пример ветвления if внутри функции*/
+/* const fun = function (x, y) {
+  if (x > y) {
+    return 'Ура X больше Y';
+  }
+  return 'Хмм Х меньше Y';
+};
+
+console.log(fun(2, 3)); */
+/* 
+ const calculateTotalPrice = function (items) {
+  let total = 0;
+  for (const item of items) {
+    total += item;
+  }
+  return total;
+};
+ 
+console.log(calculateTotalPrice([24, 2, 4, 5, 5])); */
+
+const logirovFunc = function (aitems) {
+  // const logins = ['sdfsf', 'qwe', 'asdf'];
+  // const log = 'sdfsf';
+  let message = '';
+
+  for (const item of items) {
+    if (login === log) {
+      message = 'ПОльзователь найден';
+      break;
+    } else {
+      message = 'Нема';
+    }
+  }
+};
+
+const logins = ['sdfsf', 'qwe', 'asdf'];
+const toFindsLog = function (items) {
+  let message = '';
+
+  const tofind = logins.includes(items);
+  if (tofind === true) {
+    return (message = 'ПОльзователь найден');
+  } else {
+    return (message = 'Нема');
+  }
+};
+
+console.log(toFindsLog('sdfsf'));
+console.log(toFindsLog('qwe'));
+console.log(toFindsLog('asddf'));
+
+// const log = 'qwe';
