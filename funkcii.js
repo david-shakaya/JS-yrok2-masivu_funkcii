@@ -303,6 +303,11 @@ console.log(f1);
 
 console.log(fun(2, 3)); */
 /* 
+*
+*
+* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ЗАДАЧА 
+*
+// Создай функцию которая будет считать сумму всех чисел в масиве
  const calculateTotalPrice = function (items) {
   let total = 0;
   for (const item of items) {
@@ -313,22 +318,38 @@ console.log(fun(2, 3)); */
  
 console.log(calculateTotalPrice([24, 2, 4, 5, 5])); */
 
-const logirovFunc = function (aitems) {
-  // const logins = ['sdfsf', 'qwe', 'asdf'];
+/*
+ *
+ *>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ЗАДАЧА
+ *
+ * Напиши функцию findLogin  Для поиска логина.
+ *  - Если логина нет, вывести сообщение "НЕТ"
+ * - Если есть то "ЕСТЬ"
+ */
+/* const logins = ['sf', 'asdf', 'qwe'];
+
+const findLogin = function (allLpgins, loginTofind) {
   // const log = 'sdfsf';
   let message = '';
 
-  for (const item of items) {
-    if (login === log) {
+  for (const login of allLpgins) {
+    if (login === loginTofind) {
       message = 'ПОльзователь найден';
       break;
     } else {
       message = 'Нема';
     }
   }
+  return message;
 };
 
-const logins = ['sdfsf', 'qwe', 'asdf'];
+console.log(findLogin(logins, 'sf'));
+console.log(lfindLogin(logins, 'sfsdsgd')); */
+/*
+ *
+ * >>>>>>>>>>>>> ЗАДАЧА таже что и выше но сделана с помощью .includes()
+ */
+/* const logins = ['sdfsf', 'qwe', 'asdf'];
 const toFindsLog = function (items) {
   let message = '';
 
@@ -342,6 +363,29 @@ const toFindsLog = function (items) {
 
 console.log(toFindsLog('sdfsf'));
 console.log(toFindsLog('qwe'));
-console.log(toFindsLog('asddf'));
+console.log(toFindsLog('asddf')); */
 
 // const log = 'qwe';
+
+/*
+ *
+ *
+ *
+ *>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ЗАДАЧА
+ *
+ * Напиши функцию поиска самого маленького числа в масиве.
+ */
+
+const toFindSmalNumber = function (numbers2) {
+  let smalNumbers = numbers[0];
+
+  for (let i = 0; i < numbers.length; i += 1) {
+    if (smalNumbers > numbers[i]) {
+      smalNumbers = numbers[i];
+    }
+  }
+  return smalNumbers;
+};
+
+const numbers = [23, 20, 30, 4, 7, 9, 2, 90, 17];
+console.log(`Самое маленькое число: ${toFindSmalNumber(numbers)}`);
