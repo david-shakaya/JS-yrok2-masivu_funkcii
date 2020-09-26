@@ -418,19 +418,41 @@ console.log(`Самое маленькое число: ${toFindSmalNumber(number
 
 console.log(getItemsString(['Mango', 'Poly', 'Ajax', 'Lux', 'Jay', 'Kong']));
  */
-let word = 'Proin sociis natoque et magnis parturient montes mus';
-const calculateEngravingPrice = (message = '', pricePerWord = 0) =>
-  pricePerWord;
-word = word.split(' ').length;
-console.log(word);
+/* 
+*
+*
+*
+*
+*
+* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ЗАДАЧА с дз 2
+*
+*Напиши скрипт подсчета стоимости гравировки украшений. 
+*Для этого создай функцию calculateEngravingPrice(message = "", pricePerWord = 0) 
+*принимающую строку (в строке будут только слова и пробелы) и цену гравировки одного слова,
+* и возвращающую цену гравировки всех слов в строке.
+*
+*
+* - Решение класическое/
+/* const calculateEngravingPrice = function (message, pricePerWord) {
+  return message.split(' ').length * pricePerWord;
+};
 
 console.log(
   calculateEngravingPrice(
     'Proin sociis natoque et magnis parturient montes mus',
     10,
   ),
-); // 80
-
-/* 
-.split() Метод разбивает строку в массив, разделяя строку на подстроки. Можно
- * разбить по буквам .split(''), по пробелам .split(' '), по запятым .split(',') и тд. */
+); */
+/*
+ *
+ * - Решение с помощь стрелочной функции
+ *
+ */
+// const calculateEngravingPrice = (message = '', pricePerWord = 0) =>
+//   message.split(' ').length * pricePerWord;
+// console.log(
+//   calculateEngravingPrice(
+//     'Proin sociis natoque et magnis parturient montes mus',
+//     10,
+//   ),
+// );
