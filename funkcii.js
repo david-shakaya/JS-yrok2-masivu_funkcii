@@ -24,7 +24,7 @@ console.log(friends.length); /* >.length - узнает длину масива 
 // const lengthIndex = friends.length; /* Переменная с длиной индекса */
 // for (let i = 0; i < lengthIndex; i += 1) {
 /*i < lengthIndex - Указали, что i менше длины индекса масива  */
-//   friends[i] += ' -1'; /* Пришиваем -1(изменяем) елементы масива */
+// friends[i] += ' -1'; /* Пришиваем -1(изменяем) елементы масива */
 // }
 // console.log(friends);
 
@@ -152,7 +152,7 @@ for (const number of numbers) {
   }
 }
 console.log(min);
-*
+*\\
 * 
 *
 *
@@ -225,6 +225,7 @@ const normalized = title.toLowerCase();
 const word = normalized.split(' ');
 const slug = word.join('-');
 console.log(slug); */
+
 /*
  *
  *-----------------------Эта же задача но написана короче */
@@ -376,7 +377,7 @@ console.log(toFindsLog('asddf')); */
  * Напиши функцию поиска самого маленького числа в масиве.
  */
 
-const toFindSmalNumber = function (numbers2) {
+/* const toFindSmalNumber = function (numbers2) {
   let smalNumbers = numbers[0];
 
   for (let i = 0; i < numbers.length; i += 1) {
@@ -389,3 +390,47 @@ const toFindSmalNumber = function (numbers2) {
 
 const numbers = [23, 20, 30, 4, 7, 9, 2, 90, 17];
 console.log(`Самое маленькое число: ${toFindSmalNumber(numbers)}`);
+ */
+/* 
+
+
+ */
+/* *
+ *
+ *
+ *
+ *>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Задача с ДЗ 1
+ *Напиши функцию getItemsString(array), которая получает массив и возвращает строку, полученную из объединения
+  (конкатенации) строк в формате ${номер элемента} - ${значение элемента}\n , где \n - спецсимвол переноса.
+
+Нумерация должна начинаться с 1. К примеру для первого элемента массива ['Mango', 'Poly', 'Ajax'] с индексом 0 будет выведено 
+'1 - Mango', а для индекса 2 выведет '3 - Ajax'.
+
+Используйте вспомогательную переменную result для добавления (конкатенации) строк внутри цикла for
+ */
+/* const getItemsString = function (array) {
+  let result = '';
+  for (let i = 0; i < array.length; i += 1) {
+    result += `${[i + 1]} - ${array[i]}\n`;
+  }
+  return result;
+};
+
+console.log(getItemsString(['Mango', 'Poly', 'Ajax', 'Lux', 'Jay', 'Kong']));
+ */
+let word = 'Proin sociis natoque et magnis parturient montes mus';
+const calculateEngravingPrice = (message = '', pricePerWord = 0) =>
+  pricePerWord;
+word = word.split(' ').length;
+console.log(word);
+
+console.log(
+  calculateEngravingPrice(
+    'Proin sociis natoque et magnis parturient montes mus',
+    10,
+  ),
+); // 80
+
+/* 
+.split() Метод разбивает строку в массив, разделяя строку на подстроки. Можно
+ * разбить по буквам .split(''), по пробелам .split(' '), по запятым .split(',') и тд. */
