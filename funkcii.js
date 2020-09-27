@@ -466,37 +466,13 @@ console.log(
 /* const findLongestWord function = (string) {
 } */
 
-let strings = 'The quick brown fox jumped over the lazy dog';
-strings = strings.split(' ');
-// console.log(strings);
-let lengtWords;
-let q = strings[0];
+let strings = 'The quick brown fox jumped over dfdgdfgdfgdf the lazy dog';
+let splitStrings = strings.split(' ');
+let lengtWords = '';
 
-for (let i = 0; i < strings.length; i += 1) {
-  // if (strings[i] < lengtWords) {
-  //   lengtWords = strings[i];
-  // }
-  lengtWords = strings[i].split('');
-  for (let i = 0; i < lengtWords.length; i += 1)
-    if (lengtWords[i] > q) {
-      q = lengtWords[i];
-    }
-  console.log(q);
+for (let i = 0; i < splitStrings.length; i += 1) {
+  if (splitStrings[i].length > lengtWords.length) {
+    lengtWords = splitStrings[i];
+  }
 }
-
-/* 
-let smalNumbers = numbers[0];
-
-  for (let i = 0; i < numbers.length; i += 1) {
-    if (smalNumbers > numbers[i]) {
-      smalNumbers = numbers[i]; */
-
-//console.log(findLongestWord('The quick brown fox jumped over the lazy dog'));
-/* 
-const friends = ['kivi', 'david', 'alex', 'ajax']; */
-// const lengthIndex = friends.length; /* Переменная с длиной индекса */
-// for (let i = 0; i < lengthIndex; i += 1) {
-/*i < lengthIndex - Указали, что i менше длины индекса масива  */
-// friends[i] += ' -1'; /* Пришиваем -1(изменяем) елементы масива */
-// }
-// console.log(friends);
+console.log(lengtWords);
