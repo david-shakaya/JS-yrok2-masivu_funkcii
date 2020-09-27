@@ -465,14 +465,39 @@ console.log(
 
 /* const findLongestWord function = (string) {
 } */
+/* 
+*
+* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ЗАДАЧА с дз 3
+*
+*Напиши функцию findLongestWord(string = ""), которая принимает параметром 
+произвольную строку (в строке будут только слова и пробелы) и возвращает самое длинное слово 
+в этой строке.
+ */
 
-let strings = 'The quick brown fox jumped over dfdgdfgdfgdf the lazy dog';
-let splitStrings = strings.split(' ');
-let lengtWords = '';
+// function findLongestWord(string = '') {
+//   const splitStrings = string.split(' ');
+//   let lengtWords = '';
 
-for (let i = 0; i < splitStrings.length; i += 1) {
-  if (splitStrings[i].length > lengtWords.length) {
-    lengtWords = splitStrings[i];
-  }
+//   for (let i = 0; i < splitStrings.length; i += 1) {
+//     if (splitStrings[i].length > lengtWords.length) {
+//       lengtWords = splitStrings[i];
+//     }
+//   }
+//   return lengtWords;
+// }
+
+// console.log(findLongestWord('The quick brown fox jumped over the lazy dog'));
+
+function formatString(string, maxLength = 40) {
+  let stringSplice = string.split(' ').slice(0, 39);
+  let q = '';
+  for (let i = 0; i < stringSplice.length; i += 1) {
+    if (stringSplice[i].length > maxLength) {
+      // то обрезать строку до 40 символов
+      q = stringSplice.length.slice(0, -1);
+    }
+
+  return stringSplice;
 }
-console.log(lengtWords);
+
+console.log(formatString('Vestibulum facilisis, purus nec pulvinar iaculis.'));
