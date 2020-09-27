@@ -82,6 +82,8 @@ for (let i = 0; i < numbers.length; i += 1) {
     total += numbers[i];
   }
 }
+
+
 console.log('Четное!', total); 
 *
 *
@@ -192,8 +194,12 @@ console.log(string);
  * 
  *  ------.split() Метод разбивает строку в массив, разделяя строку на подстроки. Можно
  * разбить по буквам .split(''), по пробелам .split(' '), по запятым .split(',') и тд.
+ 
+ 
+ 
  */
 /*
+
 let strings = 'jAVA sCRIPT';
 strings = strings.split('');
 let result = '';
@@ -456,3 +462,41 @@ console.log(
 //     10,
 //   ),
 // );
+
+/* const findLongestWord function = (string) {
+} */
+
+let strings = 'The quick brown fox jumped over the lazy dog';
+strings = strings.split(' ');
+// console.log(strings);
+let lengtWords;
+let q = strings[0];
+
+for (let i = 0; i < strings.length; i += 1) {
+  // if (strings[i] < lengtWords) {
+  //   lengtWords = strings[i];
+  // }
+  lengtWords = strings[i].split('');
+  for (let i = 0; i < lengtWords.length; i += 1)
+    if (lengtWords[i] > q) {
+      q = lengtWords[i];
+    }
+  console.log(q);
+}
+
+/* 
+let smalNumbers = numbers[0];
+
+  for (let i = 0; i < numbers.length; i += 1) {
+    if (smalNumbers > numbers[i]) {
+      smalNumbers = numbers[i]; */
+
+//console.log(findLongestWord('The quick brown fox jumped over the lazy dog'));
+/* 
+const friends = ['kivi', 'david', 'alex', 'ajax']; */
+// const lengthIndex = friends.length; /* Переменная с длиной индекса */
+// for (let i = 0; i < lengthIndex; i += 1) {
+/*i < lengthIndex - Указали, что i менше длины индекса масива  */
+// friends[i] += ' -1'; /* Пришиваем -1(изменяем) елементы масива */
+// }
+// console.log(friends);
