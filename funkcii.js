@@ -123,6 +123,7 @@ for (const login of log) {
   message = 'Пользователь НЕ найден';
 }
 console.log(message);
+
  *
  *
  * 
@@ -535,6 +536,7 @@ console.log(
  *
  * 
  * Функция предикат возвращает true или false
+ * 
 
 Напиши функцию checkForSpam(message), принимающую 1 параметр message - строку.
  Функция проверяет ее на содержание слов spam и sale. Если нашли запрещенное слово то 
@@ -662,3 +664,25 @@ const arrSlow = new Array(); // медленнее
 // console.log(reduceArray([1, 2, 3]));
 // console.log(reduceArray([-2, 0, 2]));
 // console.log(reduceArray([1, 2, 2.5]));
+
+function isLoginValid(login, min = 4, max = 16) {
+  return login.length >= min && login.length <= max;
+}
+
+console.log(isLoginValid('1kks'));
+
+const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
+function isLoginUnique(allLogins, login) {
+  for (const allLogin of allLogins) {
+    if (allLogin === login) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(isLoginUnique(logins, 'qwerty123'));
+console.log(isLoginUnique(logins, 'Mango')); //false
+console.log(isLoginUnique(logins, 'robotGoogles')); //false
+console.log(isLoginUnique(logins, 'Poавy')); //true
+console.log(isLoginUnique(logins, 'Poly')); //false
