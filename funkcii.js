@@ -488,16 +488,40 @@ console.log(
 
 // console.log(findLongestWord('The quick brown fox jumped over the lazy dog'));
 
-function formatString(string, maxLength = 40) {
-  let stringSplice = string.split(' ').slice(0, 39);
-  let q = '';
-  for (let i = 0; i < stringSplice.length; i += 1) {
-    if (stringSplice[i].length > maxLength) {
-      // то обрезать строку до 40 символов
-      q = stringSplice.length.slice(0, -1);
-    }
+/* 
+*
+*
+*
+*
+*
+*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ЗАДАЧА дз 4
+*
+*
+* Форматирование строки в зависимости от длинны строки
 
-  return stringSplice;
-}
+Напиши функцию formatString(string, maxLength = 40) которая принимает строку и форматирует ее если необходимо.
 
-console.log(formatString('Vestibulum facilisis, purus nec pulvinar iaculis.'));
+    Если длина строки не превышает maxLength, функция возвращает ее в исходном виде.
+    Если длина больше maxLength, то функция обрезает строку до размера maxLength символов и добавляет в конец строки троеточие 
+    ..., после чего возвращает укороченную версию.
+
+*/
+
+// function formatString(string, maxLength = 40) {
+//   let stringSplice = '';
+
+//   for (let i = 0; i < string.length; i += 1) {
+//     if (string.length > maxLength) {
+//       return (stringSplice = string.slice(0, maxLength) + '...');
+//     } else {
+//       return (stringSplice = string);
+//     }
+//   }
+//   return stringSplice;
+// }
+
+// console.log(formatString('Vestibulum facilisis,lllllllllllllsss  sfsg sgs '));
+// console.log(
+//   formatString('Vestibulum facilisis, purus nec pulvinar iaculis.', 30),
+// );
+// console.log(formatString(''));
