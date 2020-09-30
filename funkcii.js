@@ -755,3 +755,158 @@ isLoginValid в нашем случае.
 // }
 // const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 // console.log(addLogin(logins, 'Pfdfv'));
+
+/* 
+*
+*
+*
+*
+*
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                                                 OБЕКТЫ                          
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+// CОздание обьекта
+// const hotel = {} - Литерал объекта - {}
+//> const hotel = { name: 'Toyota hotel' };  - ///({ name: 'Toyota hotel' } - Это свойства объекта)///
+//  - name: - Ключ или имя свойства. /// 'Toyota hotel' - значение свойства
+// const hotel = {
+//   name: 'Toyota hotel',
+//   stars: 5,
+//   capacity: 200,
+// };
+
+// //  Обращаемся к имени(ключу ) свойства
+// console.log(hotel.name); // Toyota hotel
+
+// // Еще  способ обратится к ключу свойства
+// console.log(hotel['name']); // Toyota hotel
+
+// // В случае если свойство обьекта находится в отдельной переменной тогда обращаемся так: hotel['name']
+// console.log(hotel['name']);
+
+// hotel.stars = 3; //  ПЕрезаписываем значение свойства,
+// hotel.arrow = []; // Добавляем свойства в обект
+
+// Функция внутри обьекта
+
+// const hotel = {
+//   name: 'Toyota hotel',
+//   stars: 5,
+//   capacity: 200,
+//   // Создали метод (функцию) которая меняет значение свойства
+//   updateName(newName) {
+//     this.name = newName;
+//   },
+// };
+// // Вызываем метод (функцию) и перезаписываем значение свойства name
+// hotel.updateName('ddd');
+// console.log(hotel);
+
+// const hotel = {
+//   name: 'Toyota hotel',
+//   stars: 5,
+//   capacity: 200,
+// };
+// // Далаем из обьекта масив ключей
+// const arrs = Object.keys(hotel); //<<<<<<<<<<<<<
+// // Считаем длину масива и выводим в консоль
+// console.log(arrs.length);
+
+// // Перебераем масив полученный из обьекта и выводим в консоль
+// for (const arr of arrs) {
+//   console.log(arr); //Переберает имена(ключи) свойств
+//   console.log(hotel[arr]); //Перреберает значение свойств
+// }
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ЗАДАЧА
+//
+// Посчитай сколько всего комнат в доме! Есть обьект в переменной house.
+// Для подсчета преобрази обект в масив. О подсчитай сумму
+// всех значений свойств объекта
+
+// let house = {
+//   bedroom: 4,
+//   kitchen: 2, //ОБЪЕКТ
+//   bathroom: 1,
+//   livingRoom: 1,
+// };
+// let total = 0;
+// const transformArrs = Object.keys(house); // Превращием объект в масив ключей(имен) свойств [bedroom,kit...]
+
+// for (const transformArr of transformArrs) {
+//   // Перебераем маив циклом
+//   total += house[transformArr]; // Приплюсовуем значение свойств к тотал
+// }
+// console.log(total);
+
+// house = Object.values(house); // Превращием объект в масив значений свойств [4,2,11] //<<<<<<<<<<
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ЗАДАЧА
+//
+//
+//
+//
+//
+// Напиши функцию поиска друга по имени в масиве объектов.
+// Если нашли выведи сообщение: Нашли друга: ${name}
+// Если нет то: Друга ${name} не нашли
+
+// const friends = [
+//   { name: 'David', online: false },
+//   { name: 'Kivi', online: true },
+//   { name: 'Ajax', online: false },
+//   { name: 'Oksana', online: true },
+// ];
+
+// const fayndFriends = function (allfriends, name) {
+//   for (const friend of friends) {
+//     if (friend.name === name) {
+//       return `Нашли друга: ${name}`;
+//     }
+//   }
+//   return `Друга ${name} не нашли`;
+// };
+
+// console.log(fayndFriends(friends, 'Ajax'));
+// console.log(fayndFriends(friends, 'Sergey'));
+
+//>>>>>>>>>>>>>>>>>>>>>>>ЗАДАЧА<<<<<<<<<<<<<<<< Получи имена всех друзей в масиве.
+// const friends = [
+//   { name: 'David', online: false },
+//   { name: 'Kivi', online: true },
+//   { name: 'Ajax', online: false },
+//   { name: 'Oksana', online: true },
+// ];
+
+// const allFriendsName = function (allFriends) {
+//   const names = [];
+
+//   for (const friend of allFriends`) {
+//     names.push(friend.name);
+//   }
+//   return names;
+// };
+// console.log(allFriendsName(friends));
+// ['David', 'Kivi', 'Ajax', 'Oksana'];
+
+// //>>>>>>>>>>>>>>>>>>>>>>>ЗАДАЧА<<<<<<<<<<<<<<<< Получи имена только тех друзей которые онлайн.
+
+const friends = [
+  { name: 'David', online: false },
+  { name: 'Kivi', online: true },
+  { name: 'Ajax', online: false },
+  { name: 'Oksana', online: true },
+];
+
+const allFriendsName = function (allFriends) {
+  const names = [];
+
+  for (const friend of allFriends) {
+    if (friend.online) {
+      //Здесь можно не писать === true. Ведь условие выполниться только если ===true
+      names.push(friend.name);
+    }
+  }
+  return names;
+};
+console.log(allFriendsName(friends));
