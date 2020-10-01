@@ -834,7 +834,7 @@ isLoginValid в нашем случае.
 // const transformArrs = Object.keys(house); // Превращием объект в масив ключей(имен) свойств [bedroom,kit...]
 
 // for (const transformArr of transformArrs) {
-//   // Перебераем маив циклом
+//   // Перебераем маcив циклом
 //   total += house[transformArr]; // Приплюсовуем значение свойств к тотал
 // }
 // console.log(total);
@@ -891,22 +891,82 @@ isLoginValid в нашем случае.
 
 // //>>>>>>>>>>>>>>>>>>>>>>>ЗАДАЧА<<<<<<<<<<<<<<<< Получи имена только тех друзей которые онлайн.
 
-const friends = [
-  { name: 'David', online: false },
-  { name: 'Kivi', online: true },
-  { name: 'Ajax', online: false },
-  { name: 'Oksana', online: true },
-];
+// const friends = [
+//   { name: 'David', online: false },
+//   { name: 'Kivi', online: true },
+//   { name: 'Ajax', online: false },
+//   { name: 'Oksana', online: true },
+// ];
 
-const allFriendsName = function (allFriends) {
-  const names = [];
+// const allFriendsName = function (allFriends) {
+//   const names = [];
 
-  for (const friend of allFriends) {
-    if (friend.online) {
-      //Здесь можно не писать === true. Ведь условие выполниться только если ===true
-      names.push(friend.name);
-    }
-  }
-  return names;
-};
-console.log(allFriendsName(friends));
+//   for (const friend of allFriends) {
+//     if (friend.online) {
+//       //Здесь можно не писать === true. Ведь условие выполниться только если ===true
+//       names.push(friend.name);
+//     }
+//   }
+//   return names;
+// };
+// console.log(allFriendsName(friends));
+/*
+ *
+ *
+ *
+ *
+ *
+ *>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Задача с дз 1 <<<<<<<<<<<<<<<<<<<
+ */
+// Напиши скрипт, который, для объекта user, последовательно:
+
+//     добавляет поле 'mood' со значением 'happy'
+//     добавляет поле 'full time' со значением true
+//     заменяет значение 'hobby' на 'skydiving'
+//     заменяет значение 'premium' на false
+//     в переменную message записывает содержимое объекта user:
+//         для переменной keys присваивает массив свойств объекта, используя метод Object.keys()
+
+// с помощью оператора for...of
+// в формате ключ:значение
+// c переносом строки ('\n')
+// let message = '';
+// const user = {
+//   age: 20,
+//   hobby: 'html',
+//   name: 'Mango',
+//   premium: true,
+// };
+// user.mood = 'happy';
+// user['full time'] = true;
+// user.hobby = 'skydiving';
+// user.premium = false;
+
+// const keys = Object.keys(user);
+
+// for (const key of keys) {
+//   message += `${key} : ${user[key]} ${'\n'}`;
+// }
+// console.log(message);
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ *>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  Задача 2 с дз  <<<<<<<<<<<<
+ * 
+ * 
+ * Подсчет количества свойств в объекте
+Напиши функцию countProps(obj), которая возвращает число - количество свойств в объекте.
+Циклы не должны использоваться
+ */
+
+// const countProps = function (obj) {
+//   obj = Object.keys(obj);
+//   return (obj = obj.length);
+// };
+
+// console.log(countProps({})); // 0
+// console.log(countProps({ a: 1, b: 1 })); // 2
