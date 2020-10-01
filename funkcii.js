@@ -970,3 +970,52 @@ isLoginValid в нашем случае.
 
 // console.log(countProps({})); // 0
 // console.log(countProps({ a: 1, b: 1 })); // 2
+/* 
+*
+*
+*
+*
+*
+*
+*
+Поиск наибольшего значения среди свойств объекта
+Напиши функцию findBestEmployee(employees), которая принимает объект сотрудников и 
+возвращает имя самого продуктивного (который выполнил больше всех задач).
+Сотрудники и кол-во выполненных задач содержатся как свойства объекта в формате "имя":"кол-во задач". */
+
+const findBestEmployee = function (employees) {
+  // const neimWorkers = Object.keys(employees);
+  const velus = Object.values(employees);
+  const max = Math.max(...velus);
+  let message = '';
+
+  for (const employee in employees) {
+    if (employees[employee] === max) {
+      message = employee;
+    }
+  }
+  return message;
+};
+
+const developers = {
+  ann: 29,
+  david: 35,
+  helen: 100,
+  lorence: 99,
+};
+console.log(findBestEmployee(developers));
+// const hotel = {
+//   name: 'Resort Hotel',
+//   stars: 5,
+//   capacity: 100,
+// };
+
+// for (const key in hotel) {
+//   console.log('Value: ', hotel[key]);
+// }
+
+/*
+ * Value: "Resort Hotel"
+ * Value: 5
+ * Value: 100
+ */
