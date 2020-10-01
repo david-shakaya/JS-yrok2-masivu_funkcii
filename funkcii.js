@@ -976,13 +976,42 @@ isLoginValid в нашем случае.
 *
 *
 *
-*
+*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  Задача 3 с ДЗ  >>>>>>>>>>>>>>
 *
 Поиск наибольшего значения среди свойств объекта
 Напиши функцию findBestEmployee(employees), которая принимает объект сотрудников и 
 возвращает имя самого продуктивного (который выполнил больше всех задач).
-Сотрудники и кол-во выполненных задач содержатся как свойства объекта в формате "имя":"кол-во задач". */
+Сотрудники и кол-во выполненных задач содержатся как свойства объекта в формате "имя":"кол-во задач". 
+*
+*
+*
+*/
+const findBestEmployee = function (employees) {
+  const keys = Object.keys(employees); // Переводим объект в масив ключей[ann, david...]
+  const velus = Object.values(employees); // Переводим объект в масив свойств обьекта[29,35...]
+  const max = Math.max(...velus); //Ищем макимальное чило в масиве свойств[29,35,100...]
+  let message = '';
+  for (const key of keys) {
+    //Перебераем ключи
+    if (employees[key] === max) {
+      //Если employees[key] //масив свойств[29,35...] === max(100)
 
+      message = key; //То покажи ключ(имя) обьекта на котором остановиться итерация (это - helen)
+    }
+  }
+  return message;
+};
+const developers = {
+  ann: 29,
+  david: 35,
+  helen: 100,
+  lorence: 99,
+};
+console.log(findBestEmployee(developers));
+/*
+ *
+ *>>>>>>>>Еще один вариант решения
+ */
 // const findBestEmployee = function (employees) {
 //   // const neimWorkers = Object.keys(employees);
 //   const velus = Object.values(employees);
@@ -1004,23 +1033,3 @@ isLoginValid в нашем случае.
 //   lorence: 99,
 // };
 // console.log(findBestEmployee(developers));
-
-const findBestEmployee = function (employees) {
-  const keys = Object.keys(employees);
-  const velus = Object.values(employees);
-  const max = Math.max(...velus);
-  let message = '';
-  for (const key of keys) {
-    if (employees[key] === max) {
-      message = key;
-    }
-  }
-  return message;
-};
-const developers = {
-  ann: 29,
-  david: 35,
-  helen: 100,
-  lorence: 99,
-};
-console.log(findBestEmployee(developers));
