@@ -986,28 +986,28 @@ isLoginValid в нашем случае.
 *
 *
 */
-const findBestEmployee = function (employees) {
-  const keys = Object.keys(employees); // Переводим объект в масив ключей[ann, david...]
-  const velus = Object.values(employees); // Переводим объект в масив свойств обьекта[29,35...]
-  const max = Math.max(...velus); //Ищем макимальное чило в масиве свойств[29,35,100...]
-  let message = '';
-  for (const key of keys) {
-    //Перебераем ключи
-    if (employees[key] === max) {
-      //Если employees[key] //масив свойств[29,35...] === max(100)
+// const findBestEmployee = function (employees) {
+//   const keys = Object.keys(employees); // Переводим объект в масив ключей[ann, david...]
+//   const velus = Object.values(employees); // Переводим объект в масив свойств обьекта[29,35...]
+//   const max = Math.max(...velus); //Ищем макимальное чило в масиве свойств[29,35,100...]
+//   let message = '';
+//   for (const key of keys) {
+//     //Перебераем ключи
+//     if (employees[key] === max) {
+//       //Если employees[key] //масив свойств[29,35...] === max(100)
 
-      message = key; //То покажи ключ(имя) обьекта на котором остановиться итерация (это - helen)
-    }
-  }
-  return message;
-};
-const developers = {
-  ann: 29,
-  david: 35,
-  helen: 100,
-  lorence: 99,
-};
-console.log(findBestEmployee(developers));
+//       message = key; //То покажи ключ(имя) обьекта на котором остановиться итерация (это - helen)
+//     }
+//   }
+//   return message;
+// };
+// const developers = {
+//   ann: 29,
+//   david: 35,
+//   helen: 100,
+//   lorence: 99,
+// };
+// console.log(findBestEmployee(developers));
 /*
  *
  *>>>>>>>>Еще один вариант решения
@@ -1033,3 +1033,64 @@ console.log(findBestEmployee(developers));
 //   lorence: 99,
 // };
 // console.log(findBestEmployee(developers));
+
+/*
+ *
+ *
+ *
+ *
+ *
+ *>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  Задача 4 с дз <<<<<<<<<<<<<<<<<<
+ *
+ *
+ *
+ *Суммирование значений свойств объекта
+
+Напиши функцию countTotalSalary(employees) принимающую объект зарплат.
+ Функция считает общую сумму зарплаты работников и возвращает ее. Каждое поле объекта, 
+ передаваемого в функцию, имеет вид "имя":"зарплата".
+ */
+/* const countTotalSalary = function (employees) {
+  const values = Object.values(employees);
+  let total = 0;
+  console.log(values);
+
+  for (const value of values) {
+    total += value;
+  }
+  return total;
+};
+
+const developers = {
+  mango: 300,
+  poly: 250,
+  alfred: 450,
+};
+console.log(countTotalSalary(developers)); */
+
+/*
+ */
+
+function getAllPropValues(array, prop) {
+  const names = [];
+  for (const arr of array) {
+    names.push(arr[prop]);
+    if (arr[prop] === undefined) {
+      return [];
+    }
+  }
+  return names;
+}
+
+const products = [
+  { name: 'Радар', price: 1300, quantity: 4 },
+  { name: 'Радар', price: 1280, quantity: 2 },
+  { name: 'Радар', price: 1320, quantity: 1 },
+  { name: 'Сканер', price: 2700, quantity: 1 },
+  { name: 'Сканер', price: 2500, quantity: 3 },
+  { name: 'Дроид', price: 400, quantity: 7 },
+  { name: 'Захват', price: 1200, quantity: 2 },
+];
+
+console.log(getAllPropValues(products, 'name'));
+console.log(getAllPropValues(products, 'category'));
