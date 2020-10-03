@@ -1082,16 +1082,44 @@ console.log(countTotalSalary(developers)); */
 Используй метод push для добавления значения в массив и оператор in для проверки наличия свойства в объекте.
  */
 
-function getAllPropValues(array, prop) {
-  const names = [];
-  for (const arr of array) {
-    names.push(arr[prop]);
-    if (arr[prop] === undefined) {
-      return [];
+// function getAllPropValues(array, prop) {
+//   const names = [];
+//   for (const arr of array) {
+//     names.push(arr[prop]);
+//     if (arr[prop] === undefined) {
+//       return [];
+//     }
+//   }
+//   return names;
+// }
+
+// const products = [
+//   { name: 'Радар', price: 1300, quantity: 4 },
+//   { name: 'Радар', price: 1280, quantity: 2 },
+//   { name: 'Радар', price: 1320, quantity: 1 },
+//   { name: 'Сканер', price: 2700, quantity: 1 },
+//   { name: 'Сканер', price: 2500, quantity: 3 },
+//   { name: 'Дроид', price: 400, quantity: 7 },
+//   { name: 'Захват', price: 1200, quantity: 2 },
+// ];
+
+// console.log(getAllPropValues(products, 'name'));
+// console.log(getAllPropValues(products, 'category'));
+
+function calculateTotalPrice(array, prop) {
+  let result = 0;
+
+  const values = Object.values(array);
+  for (const val of values) {
+    if (val.name === prop) {
+      result = val.price * val.quantity;
     }
   }
-  return names;
+  return result;
 }
+// if (key === prop) {
+//  result = price * quantity
+// }
 
 const products = [
   { name: 'Радар', price: 1300, quantity: 4 },
@@ -1103,5 +1131,9 @@ const products = [
   { name: 'Захват', price: 1200, quantity: 2 },
 ];
 
-console.log(getAllPropValues(products, 'name'));
-console.log(getAllPropValues(products, 'category'));
+// const values = Object.values(products);
+// for (const val of values) {
+//   console.log(val.price * val.quantity);
+// }
+
+console.log(calculateTotalPrice(products, 'Захват'));
