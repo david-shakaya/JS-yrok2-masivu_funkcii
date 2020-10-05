@@ -1155,3 +1155,21 @@ console.log(countTotalSalary(developers)); */
 // ];
 
 // console.log(calculateTotalPrice(products, 'Радар'));
+
+let x = Math.random() * (100 - 1) + 1;
+let num = 0;
+console.log((x = Math.round(x)));
+
+do {
+  num = prompt('Угадайте число от 1 до 100');
+  if (num > x) {
+    console.log('Это число меньше');
+  }
+  if (num < x) {
+    console.log('Это число Больше');
+  }
+  if (num === x) {
+    console.log(`УРА!!! Вы угадали это число ${x}`);
+    break;
+  }
+} while (num === x);
