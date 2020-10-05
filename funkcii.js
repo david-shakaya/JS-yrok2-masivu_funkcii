@@ -1108,13 +1108,19 @@ console.log(countTotalSalary(developers)); */
 
 function calculateTotalPrice(array, prop) {
   let result = 0;
-
   const values = Object.values(array);
   for (const val of values) {
     if (val.name === prop) {
-      result = val.price * val.quantity;
+      result += val.price * val.quantity;
+      // result = val.price
+      console.log(result);
     }
+    // if (val.name === prop) {
+    //   r += val.quantity;
+    //   console.log(r);
+    // }
   }
+
   return result;
 }
 // if (key === prop) {
@@ -1136,4 +1142,4 @@ const products = [
 //   console.log(val.price * val.quantity);
 // }
 
-console.log(calculateTotalPrice(products, 'Захват'));
+console.log(calculateTotalPrice(products, 'Радар'));
