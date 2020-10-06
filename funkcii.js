@@ -1156,12 +1156,14 @@ console.log(countTotalSalary(developers)); */
 
 // console.log(calculateTotalPrice(products, 'Радар'));
 
-let x = Math.random() * (100 - 1) + 1;
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  Задача создай игру которя просит пользователя угадать число!
+
+/* let x = Math.random() * (100 - 1) + 1;
 let num = 0;
 console.log((x = Math.round(x)));
 
 do {
-  num = prompt('Угадайте число от 1 до 100');
+  num = Number(prompt('Угадайте число от 1 до 100'));
   if (num > x) {
     console.log('Это число меньше');
   }
@@ -1170,6 +1172,169 @@ do {
   }
   if (num === x) {
     console.log(`УРА!!! Вы угадали это число ${x}`);
-    break;
   }
-} while (num === x);
+} while (num !== x); */
+/*
+ *
+ *
+ *
+ *>>>>>>>>>>>>>>>>>>>  Видео Репеты (СОЗДАЕМ КОРЗИНУ ТОВАРОВ)  <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+ *
+ */
+// { name: '🍎', price: 50 };
+// { name: '🍒', price: 10 };
+// { name: '🍍', price: 20 };
+// { name: '🍇', price: 5 };
+
+const cart = {
+  items: [],
+  getItems() {
+    return this.items;
+  },
+  abb(product) {
+    product.quantity = 1;
+    this.items.push(product);
+  },
+
+  remove(productName) {
+    console.log(`Удаляем продукт ${productName}`);
+
+    for (let i = 0; i < this.items.length; i += 1) {
+      if (productName === this.items[i].name) {
+        this.items.splice(i, 1);
+      }
+    }
+  },
+  clear() {
+    this.items.splice(0); //либо  this.items = [] (Удаляем все элементы масива)
+  },
+};
+
+console.table(cart.getItems());
+
+cart.abb({ name: '🍇', price: 5 });
+cart.abb({ name: '🍒', price: 10 });
+cart.abb({ name: '🍎', price: 10 });
+
+console.table(cart.getItems());
+
+cart.remove('🍇');
+
+console.table(cart.getItems());
+
+cart.clear();
+
+console.table(cart.getItems());
+/* >
+>
+>
+>
+>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> | ОБЬЕКТЫ ч.2 | <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+ */
+// >>>>>>Spred(РАСПЫЛЕНИЕ) <<<<
+// >>> Распыление масива на аргументы
+// const temperatures = [18, 14, 12, 21, 17, 29]; // (...temperatures делает копию масива)
+// const min = Math.min(...temperatures); // 12
+
+// >>> Добавляем елементы в масив
+// const temperatures = [18, 14, 12, 21, 17, 29];
+// const nextTemp = [...temperatures, 1, 2, 3];
+// console.log(nextTemp); // [18, 14, 12, 21, 17, 29, 1, 2, 3]
+
+// >>> Использование Spred(распыления) и метода Slise()
+// const houses = ['Arryn', 'Frey', 'Greyjoy', 'Stark', 'Lannister', 'Tyrell'];
+// const housesInDebt = [...houses.slice(0, 4), ...houses.slice(5)];
+// console.log(housesInDebt); // ['Arryn','Frey','Greyjoy','Stark','Tyrell']
+
+// >>>> Распыление Обьекта <<<<
+// const a = { x: 1, y: 2 };
+// const b = { x: 0, z: 3 };
+// const c = { ...a, ...b, g: 9 };
+// console.log(c);   //{x: 0, y: 2, z: 3, g: 9}
+
+// Object.assign();  Устаревшый метод (делает тоже самое)
+// const a = { x: 1, y: 2 };
+// const b = { x: 0, z: 3 };
+
+// const c = Object.assign({}, a, b);
+// console.log(c);    // {x: 0, y: 2, z: 3}
+
+//
+
+//  >>>>>>>>> Операция rest(сбор)<<<<<<<<
+
+// const add = function (...args) {
+//   console.log(args); // создает один массив всех аргументов
+// };
+
+// add(1, 2, 3);
+// add(1, 2, 3, 4, 5);
+
+// const add = function (value, ...args) {
+//   console.log(value); // первый аргумент
+//   console.log(args); // массив всех остальных аргументов
+// };
+
+// add(10, 1, 2, 3);
+// add(15, 1, 2, 3, 4, 5);
+
+// >>>>>>>>> Деструкутуризация <<<<<<<<<
+// Позволяет не использовать такой формат обращения hotel.name  а создать локальную переменную  const {name} = hotel
+// и обращаться сразу по ключу свойства console.log(name).
+// const hotel = {
+//   name: 'Resort Hotel',
+//   stars: 5,
+//   capacity: 100,
+// };
+
+// const { name, stars, capacity } = hotel;
+
+// >>> Перезаписываем ключ свойства. name : NewName. Сначала текущее имя после двоеточия новое имя.
+// const hotel = {
+//   name: 'Resort Hotel',
+//   stars: 5,
+// capacity: 100
+// };
+
+// const { name: newName, stars, status: hotelStatus = 'empty' } = hotel;
+
+// console.log(newName, stars, hotelStatus); // "Resort Hotel", 5, "empty"
+
+// >>>>>> Деструктуризация обьекта в функции <<<<<
+// const hotel = {
+//   name: 'Resort Hotel',
+//   stars: 5,
+//   capacity: 100,
+// };
+
+// const fn = function ({ name, stars, capacity }) {
+//   console.log(name);
+//   console.log(stars);
+//   console.log(capacity);
+// };
+
+// fn(hotel);
+
+//  >>>>>> Глубокая деструктуризация <<<<
+
+// const obj = {  // Полученый Обьект
+//   avatar: 'https / lala / land',
+//   name: 'fred',
+//   old: 28,
+//   status: {
+//     friends: 402,
+//     likes: 780,
+//   },
+// };
+
+// const {  // Переменная в которой деструктуризируем обьект
+//   avatar,
+//   name,
+//   old,
+//   status: { friends, likes },
+// } = obj;
+
+// console.log(avatar, name, old, friends, likes);  // Вызываем значение свойства обьекта по ключу
