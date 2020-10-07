@@ -1179,7 +1179,11 @@ do {
  *
  *
  *>>>>>>>>>>>>>>>>>>>  Видео Репеты (СОЗДАЕМ КОРЗИНУ ТОВАРОВ)  <<<<<<<<<<<<<<<<<<<<<<<<<<<<
- *
+ * - 1) - Создаем обьект items: [] в котором пустой масив, туда будем пушить(добавлять товар).
+ * - 2) - getItems() - Создаем метод(функцию) getItems(). Которая будет возвращать товары лежащие в масиве this.items
+ * - 3) - abb(product) - Создаем метод(функцию) abb(product). Которая при вызове будет добавлять(пушить) товар в this.items.
+ * ------ Также будет стоять проверка, если в this.items добавляеться обьект с таким именем то увеличиваем quantity.
+ * - 4) -
  */
 // { name: '🍎', price: 50 };
 // { name: '🍒', price: 10 };
@@ -1214,24 +1218,22 @@ const cart = {
   clear() {
     this.items.splice(0); //либо  this.items = [] (Удаляем все элементы масива)
   },
-  // totalQuantity() {
-  //   //   for (let i = 0; i < this.items.length; i += 1) {
-  //   //     if (  === this.items[i].name) {
-  //   //       console.log('dfddd');
-  //   //     }
-  //   //   }
-  //
-  // },
+
+  totalPrice() {
+    let totalPrice = 0;
+    for (const item of this.items) {
+      totalPrice += item.price * item.quantity;
+    }
+    return totalPrice;
+  },
 };
 
 console.table(cart.getItems());
 
 cart.abb({ name: '🍇', price: 5 });
-cart.abb({ name: '🍒', price: 10 });
 cart.abb({ name: '🍎', price: 10 });
-cart.abb({ name: '🍒', price: 10 });
-cart.abb({ name: '🍒', price: 10 });
 cart.abb({ name: '🍎', price: 10 });
+cart.abb({ name: '🍍', price: 20 });
 
 console.table(cart.getItems());
 
@@ -1243,6 +1245,7 @@ console.table(cart.getItems());
 // cart.clear();
 
 console.table(cart.getItems());
+console.log('Oбщая сумма товаров:', cart.totalPrice(), 'грн.');
 
 /* >
 >
