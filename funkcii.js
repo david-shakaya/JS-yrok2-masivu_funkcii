@@ -1192,6 +1192,12 @@ const cart = {
     return this.items;
   },
   abb(product) {
+    for (const item of this.items) {
+      if (product.name === item.name) {
+        return (item.quantity += 1);
+      }
+    }
+
     product.quantity = 1;
     this.items.push(product);
   },
@@ -1208,11 +1214,22 @@ const cart = {
   clear() {
     this.items.splice(0); //либо  this.items = [] (Удаляем все элементы масива)
   },
+  // totalQuantity() {
+  //   //   for (let i = 0; i < this.items.length; i += 1) {
+  //   //     if (  === this.items[i].name) {
+  //   //       console.log('dfddd');
+  //   //     }
+  //   //   }
+  //
+  // },
 };
 
 console.table(cart.getItems());
 
 cart.abb({ name: '🍇', price: 5 });
+cart.abb({ name: '🍒', price: 10 });
+cart.abb({ name: '🍎', price: 10 });
+cart.abb({ name: '🍒', price: 10 });
 cart.abb({ name: '🍒', price: 10 });
 cart.abb({ name: '🍎', price: 10 });
 
@@ -1222,9 +1239,11 @@ cart.remove('🍇');
 
 console.table(cart.getItems());
 
-cart.clear();
+// console.log('Oчистить козину');
+// cart.clear();
 
 console.table(cart.getItems());
+
 /* >
 >
 >
