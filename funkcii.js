@@ -1183,70 +1183,185 @@ do {
  * - 2) - getItems() - Создаем метод(функцию) getItems(). Которая будет возвращать товары лежащие в масиве this.items
  * - 3) - abb(product) - Создаем метод(функцию) abb(product). Которая при вызове будет добавлять(пушить) товар в this.items.
  * ------ Также будет стоять проверка, если в this.items добавляеться обьект с таким именем то увеличиваем quantity.
- * - 4) -
+ * - 4) - remove(productName) - Создаем медот(функцию) которая удаляет продукт из корзины. Мы проверяем: productName === this.items[i].name(productName равно тому имени который уже есть в корзине товаров).
+ * ------ Если такое имя есть то удаляет его. this.items.splice(i, 1);
+ * - 5) - clear() - Создаем медот(функцию) которая удаляет все товары с корзины. Тоесть перезаписываем this.items и удаляем все елементы масыва.
+ * - 6) - totalPrice()- Создаем медот(функцию) которая щитает общую сумму продуктов. На каждой итрации item.price умножаем на item.quantity
+ * -------и плюсуем к тоталу.
  */
 // { name: '🍎', price: 50 };
 // { name: '🍒', price: 10 };
 // { name: '🍍', price: 20 };
 // { name: '🍇', price: 5 };
 
-const cart = {
-  items: [],
-  getItems() {
-    return this.items;
+// // - 1) - Создаем обьект items: [] в котором пустой масив, туда будем пушить(добавлять товар).
+// const cart = {
+//   items: [],
+//   // - 2) - getItems() - Создаем метод(функцию) getItems(). Которая будет возвращать товары лежащие в масиве this.items
+//   getItems() {
+//     return this.items;
+//   },
+//   // - 3) - abb(product) - Создаем метод(функцию) abb(product). Которая при вызове будет добавлять(пушить) товар в this.items.
+//   abb(product) {
+//     for (const item of this.items) {
+//       if (product.name === item.name) {
+//         return (item.quantity += 1);
+//       }
+//     }
+
+//     product.quantity = 1;
+//     this.items.push(product);
+//   },
+//   // - 4) - remove(productName) - Создаем медот(функцию) которая удаляет продукт из корзины. Мы проверяем: productName === this.items[i].name(productName равно тому имени который уже есть в корзине товаров).
+//   // Если такое имя есть то удаляет его. this.items.splice(i, 1);
+//   remove(productName) {
+//     console.log(`Удаляем продукт ${productName}`);
+
+//     for (let i = 0; i < this.items.length; i += 1) {
+//       if (productName === this.items[i].name) {
+//         this.items.splice(i, 1);
+//       }
+//     }
+//   },
+//   // - 5) - clear() - Создаем медот(функцию) которая удаляет все товары с корзины. Тоесть перезаписываем this.items и удаляем все елементы масыва.
+//   clear() {
+//     this.items.splice(0); //либо  this.items = [] (Удаляем все элементы масива)
+//   },
+//   // - 6) - totalPrice()- Создаем медот(функцию) которая щитает общую сумму продуктов. На каждой итрации item.price умножаем на item.quantity
+//   //  и пльсуем к тоталу.
+//   totalPrice() {
+//     let totalPrice = 0;
+//     for (const item of this.items) {
+//       totalPrice += item.price * item.quantity;
+//     }
+//     return totalPrice;
+//   },
+// };
+
+// console.table(cart.getItems());
+
+// cart.abb({ name: '🍇', price: 5 });
+// cart.abb({ name: '🍎', price: 10 });
+// cart.abb({ name: '🍎', price: 10 });
+// cart.abb({ name: '🍍', price: 20 });
+
+// console.table(cart.getItems());
+
+// cart.remove('🍇');
+
+// console.table(cart.getItems());
+
+// // console.log('Oчистить козину');
+// // cart.clear();
+
+// console.table(cart.getItems());
+// console.log('Oбщая сумма товаров:', cart.totalPrice(), 'грн.');
+
+/*
+ * Типов транзацкий всего два.
+ * Можно положить либо снять деньги со счета.
+ */
+const Transaction = {
+  DEPOSIT: 'deposit',
+  WITHDRAW: 'withdraw',
+};
+
+/*
+ * Каждая транзакция это объект со свойствами: id:1, type:WITHDRAW и amount:10
+ */
+
+const account = {
+  // Текущий баланс счета
+  balance: 2000,
+  // История транзакций
+  transactions: [],
+  /*
+   * Метод создает и возвращает объект транзакции.
+   * Принимает сумму и тип транзакции.
+   */
+  createTransaction(amount, type) {
+    return { id: this.balance * this.transactions.length, amount, type };
   },
-  abb(product) {
-    for (const item of this.items) {
-      if (product.name === item.name) {
-        return (item.quantity += 1);
+  /*
+   * Метод отвечающий за добавление суммы к балансу.
+   * Принимает сумму танзакции.
+   * Вызывает createTransaction для создания объекта транзакции
+   * после чего добавляет его в историю транзакций
+   */
+  deposit(amount) {
+    this.balance += amount;
+    this.transactions.push(this.createTransaction(amount, Transaction.DEPOSIT));
+    //  this.items.push(product);
+  },
+
+  /*
+   * Метод отвечающий за снятие суммы с баланса.
+   * Принимает сумму танзакции.
+   * Вызывает createTransaction для создания объекта транзакции
+   * после чего добавляет его в историю транзакций.
+   *
+   * Если amount больше чем текущий баланс, выводи сообщение
+   * о том, что снятие такой суммы не возможно, недостаточно средств.
+   */
+  withdraw(amount) {
+    if (amount > this.balance) {
+      return console.log(
+        'Cнятие такой суммы не возможно, недостаточно средств.',
+      );
+    }
+    this.balance -= amount;
+    this.transactions.push(
+      this.createTransaction(amount, Transaction.WITHDRAW),
+    );
+  },
+  /*
+   * Метод возвращает текущий баланс
+   */
+  getBalance() {
+    return this.balance;
+  },
+  /*
+   * Метод ищет и возвращает объект транзации по id
+   */
+  getTransactionDetails(id) {
+    for (let i = 0; i < this.transactions.length; i += 1) {
+      if (id === this.transactions[i].id) {
+        return this.transactions[i];
       }
     }
-
-    product.quantity = 1;
-    this.items.push(product);
   },
 
-  remove(productName) {
-    console.log(`Удаляем продукт ${productName}`);
-
-    for (let i = 0; i < this.items.length; i += 1) {
-      if (productName === this.items[i].name) {
-        this.items.splice(i, 1);
+  /*
+   * Метод возвращает количество средств
+   * определенного типа транзакции из всей истории транзакций
+   */
+  getTransactionTotal(type) {
+    let total = 0;
+    for (let i = 0; i < this.transactions.length; i += 1) {
+      if (type === this.transactions[i].type) {
+        total += this.transactions[i].amount;
       }
     }
-  },
-  clear() {
-    this.items.splice(0); //либо  this.items = [] (Удаляем все элементы масива)
-  },
-
-  totalPrice() {
-    let totalPrice = 0;
-    for (const item of this.items) {
-      totalPrice += item.price * item.quantity;
-    }
-    return totalPrice;
+    return total;
   },
 };
 
-console.table(cart.getItems());
+account.createTransaction(0, Transaction.DEPOSIT);
 
-cart.abb({ name: '🍇', price: 5 });
-cart.abb({ name: '🍎', price: 10 });
-cart.abb({ name: '🍎', price: 10 });
-cart.abb({ name: '🍍', price: 20 });
+account.deposit(3);
+account.deposit(100);
+account.withdraw(1050);
+account.deposit(2);
 
-console.table(cart.getItems());
+console.log(account.transactions);
+console.log('Баланс:', account.getBalance(), 'грн.');
+console.log('Поиск по индексу:', account.getTransactionDetails(2103));
+console.log(
+  'Total for trans',
+  account.getTransactionTotal(Transaction.DEPOSIT),
+);
 
-cart.remove('🍇');
-
-console.table(cart.getItems());
-
-// console.log('Oчистить козину');
-// cart.clear();
-
-console.table(cart.getItems());
-console.log('Oбщая сумма товаров:', cart.totalPrice(), 'грн.');
-
+// console.log(account.deposit());
 /* >
 >
 >
