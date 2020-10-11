@@ -1240,11 +1240,6 @@ do {
 
 // console.table(cart.getItems());
 
-// cart.abb({ name: '🍇', price: 5 });
-// cart.abb({ name: '🍎', price: 10 });
-// cart.abb({ name: '🍎', price: 10 });
-// cart.abb({ name: '🍍', price: 20 });
-
 // console.table(cart.getItems());
 
 // cart.remove('🍇');
@@ -1256,110 +1251,125 @@ do {
 
 // console.table(cart.getItems());
 // console.log('Oбщая сумма товаров:', cart.totalPrice(), 'грн.');
+//
+//
+//
+//
+//
+//
+//
+//
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  ЗАдача 7 Дз <<<<<<<<<<<<<<<<<<<<<<<
+//
+
+// cart.abb({ name: '🍇', price: 5 });
+// cart.abb({ name: '🍎', price: 10 });
+// cart.abb({ name: '🍎', price: 10 });
+// cart.abb({ name: '🍍', price: 20 });
 
 /*
  * Типов транзацкий всего два.
  * Можно положить либо снять деньги со счета.
  */
-const Transaction = {
-  DEPOSIT: 'deposit',
-  WITHDRAW: 'withdraw',
-};
+// const Transaction = {
+//   DEPOSIT: 'deposit',
+//   WITHDRAW: 'withdraw',
+// };
 
-/*
- * Каждая транзакция это объект со свойствами: id:1, type:WITHDRAW и amount:10
- */
+// /*
+//  * Каждая транзакция это объект со свойствами: id:1, type:WITHDRAW и amount:10
+//  */
 
-const account = {
-  // Текущий баланс счета
-  balance: 2000,
-  // История транзакций
-  transactions: [],
-  /*
-   * Метод создает и возвращает объект транзакции.
-   * Принимает сумму и тип транзакции.
-   */
-  createTransaction(amount, type) {
-    return { id: this.balance * this.transactions.length, amount, type };
-  },
-  /*
-   * Метод отвечающий за добавление суммы к балансу.
-   * Принимает сумму танзакции.
-   * Вызывает createTransaction для создания объекта транзакции
-   * после чего добавляет его в историю транзакций
-   */
-  deposit(amount) {
-    this.balance += amount;
-    this.transactions.push(this.createTransaction(amount, Transaction.DEPOSIT));
-    //  this.items.push(product);
-  },
+// const account = {
+//   // Текущий баланс счета
+//   balance: 2000,
+//   // История транзакций
+//   transactions: [],
+//   /*
+//    * Метод создает и возвращает объект транзакции.
+//    * Принимает сумму и тип транзакции.
+//    */
+//   createTransaction(amount, type) {
+//     return { id: this.balance * this.transactions.length, amount, type };
+//   },
+//   /*
+//    * Метод отвечающий за добавление суммы к балансу.
+//    * Принимает сумму танзакции.
+//    * Вызывает createTransaction для создания объекта транзакции
+//    * после чего добавляет его в историю транзакций
+//    */
+//   deposit(amount) {
+//     this.balance += amount;
+//     this.transactions.push(this.createTransaction(amount, Transaction.DEPOSIT));
+//     //  this.items.push(product);
+//   },
 
-  /*
-   * Метод отвечающий за снятие суммы с баланса.
-   * Принимает сумму танзакции.
-   * Вызывает createTransaction для создания объекта транзакции
-   * после чего добавляет его в историю транзакций.
-   *
-   * Если amount больше чем текущий баланс, выводи сообщение
-   * о том, что снятие такой суммы не возможно, недостаточно средств.
-   */
-  withdraw(amount) {
-    if (amount > this.balance) {
-      return console.log(
-        'Cнятие такой суммы не возможно, недостаточно средств.',
-      );
-    }
-    this.balance -= amount;
-    this.transactions.push(
-      this.createTransaction(amount, Transaction.WITHDRAW),
-    );
-  },
-  /*
-   * Метод возвращает текущий баланс
-   */
-  getBalance() {
-    return this.balance;
-  },
-  /*
-   * Метод ищет и возвращает объект транзации по id
-   */
-  getTransactionDetails(id) {
-    for (let i = 0; i < this.transactions.length; i += 1) {
-      if (id === this.transactions[i].id) {
-        return this.transactions[i];
-      }
-    }
-  },
+//   /*
+//    * Метод отвечающий за снятие суммы с баланса.
+//    * Принимает сумму танзакции.
+//    * Вызывает createTransaction для создания объекта транзакции
+//    * после чего добавляет его в историю транзакций.
+//    *
+//    * Если amount больше чем текущий баланс, выводи сообщение
+//    * о том, что снятие такой суммы не возможно, недостаточно средств.
+//    */
+//   withdraw(amount) {
+//     if (amount > this.balance) {
+//       return console.log(
+//         'Cнятие такой суммы не возможно, недостаточно средств.',
+//       );
+//     }
+//     this.balance -= amount;
+//     this.transactions.push(
+//       this.createTransaction(amount, Transaction.WITHDRAW),
+//     );
+//   },
+//   /*
+//    * Метод возвращает текущий баланс
+//    */
+//   getBalance() {
+//     return this.balance;
+//   },
+//   /*
+//    * Метод ищет и возвращает объект транзации по id
+//    */
+//   getTransactionDetails(id) {
+//     for (let i = 0; i < this.transactions.length; i += 1) {
+//       if (id === this.transactions[i].id) {
+//         return this.transactions[i];
+//       }
+//     }
+//   },
 
-  /*
-   * Метод возвращает количество средств
-   * определенного типа транзакции из всей истории транзакций
-   */
-  getTransactionTotal(type) {
-    let total = 0;
-    for (let i = 0; i < this.transactions.length; i += 1) {
-      if (type === this.transactions[i].type) {
-        total += this.transactions[i].amount;
-      }
-    }
-    return total;
-  },
-};
+//   /*
+//    * Метод возвращает количество средств
+//    * определенного типа транзакции из всей истории транзакций
+//    */
+//   getTransactionTotal(type) {
+//     let total = 0;
+//     for (let i = 0; i < this.transactions.length; i += 1) {
+//       if (type === this.transactions[i].type) {
+//         total += this.transactions[i].amount;
+//       }
+//     }
+//     return total;
+//   },
+// };
 
-account.createTransaction(0, Transaction.DEPOSIT);
+// account.createTransaction(0, Transaction.DEPOSIT);
 
-account.deposit(3);
-account.deposit(100);
-account.withdraw(1050);
-account.deposit(2);
+// account.deposit(3);
+// account.deposit(100);
+// account.withdraw(1050);
+// account.deposit(2);
 
-console.log(account.transactions);
-console.log('Баланс:', account.getBalance(), 'грн.');
-console.log('Поиск по индексу:', account.getTransactionDetails(2103));
-console.log(
-  'Total for trans',
-  account.getTransactionTotal(Transaction.DEPOSIT),
-);
+// console.log(account.transactions);
+// console.log('Баланс:', account.getBalance(), 'грн.');
+// console.log('Поиск по индексу:', account.getTransactionDetails(2103));
+// console.log(
+//   'Total for trans',
+//   account.getTransactionTotal(Transaction.DEPOSIT),
+// );
 
 // console.log(account.deposit());
 /* >
@@ -1475,3 +1485,60 @@ console.log(
 // } = obj;
 
 // console.log(avatar, name, old, friends, likes);  // Вызываем значение свойства обьекта по ключу
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+// _______________________________________________МОДУЛЬ 4 ____________________________________________________________
+// >>>>> - Пример кол бэк функции -1
+
+// const fn = function (name) {
+//   console.log(`Тебя зовут: ${name}`);
+// };
+
+// const fn_2 = function (callback) {
+//   const truName = 'david';
+//   callback(truName);
+// };
+
+// fn_2(fn);
+
+//>>>>> - Пример кол бэк функции - 2
+
+// const logMessage = function (values) {
+//   console.log('колбек функц', values);
+// };
+// const repid = function (x, action) {
+//   for (let i = 0; i < x; i += 1) {
+//     action(i);
+//   }
+// };
+
+// repid(5, logMessage); //колбек функц 0, колбек функц 1, колбек функц 2,  колбек функц 3
+
+const filter = function (array, test) {
+  const filteredElements = [];
+
+  for (const element of array) {
+    const passed = test(element);
+    console.log(passed);
+
+    if (passed) {
+      filteredElements.push(element);
+    }
+  }
+
+  return filteredElements;
+};
+
+const fruits = [
+  { name: 'apples', quantity: 200, isFresh: true },
+  { name: 'grapes', quantity: 150, isFresh: false },
+  { name: 'bananas', quantity: 100, isFresh: true },
+];
+
+const freshFruits = filter(fruits, fruit => fruit.isFresh);
+console.log(freshFruits); // массив с объектами apples и bananas
+
+const fruitsWithQuantity = filter(fruits, fruit => fruit.quantity >= 120);
+console.log(fruitsWithQuantity); // массив с объектами apples и grapes
