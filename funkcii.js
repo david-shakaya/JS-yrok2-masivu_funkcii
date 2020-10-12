@@ -1516,29 +1516,44 @@ do {
 
 // repid(5, logMessage); //колбек функц 0, колбек функц 1, колбек функц 2,  колбек функц 3
 
-const filter = function (array, test) {
-  const filteredElements = [];
+// const filter = function (array, test) {
+//   const filteredElements = [];
 
-  for (const element of array) {
-    const passed = test(element);
-    console.log(passed);
+//   for (const element of array) {
+//     const passed = test(element);
+//     console.log(passed);
 
-    if (passed) {
-      filteredElements.push(element);
-    }
+//     if (passed) {
+//       filteredElements.push(element);
+//     }
+//   }
+
+//   return filteredElements;
+// };
+
+// const fruits = [
+//   { name: 'apples', quantity: 200, isFresh: true },
+//   { name: 'grapes', quantity: 150, isFresh: false },
+//   { name: 'bananas', quantity: 100, isFresh: true },
+// ];
+
+// const freshFruits = filter(fruits, fruit => fruit.isFresh);
+// console.log(freshFruits); // массив с объектами apples и bananas
+
+// const fruitsWithQuantity = filter(fruits, fruit => fruit.quantity >= 120);
+// console.log(fruitsWithQuantity); // массив с объектами apples и grapes
+
+
+const yourName = function (text) {
+  let r = 0;
+  for (let i = 0; i < text.length; i += 1){
+    r = [i]
   }
+  console.log(r)
+}
 
-  return filteredElements;
-};
+const sraka = function (coolback) {
+  coolback(fruit => fruit.isFresh)
+}
+sraka(yourName)
 
-const fruits = [
-  { name: 'apples', quantity: 200, isFresh: true },
-  { name: 'grapes', quantity: 150, isFresh: false },
-  { name: 'bananas', quantity: 100, isFresh: true },
-];
-
-const freshFruits = filter(fruits, fruit => fruit.isFresh);
-console.log(freshFruits); // массив с объектами apples и bananas
-
-const fruitsWithQuantity = filter(fruits, fruit => fruit.quantity >= 120);
-console.log(fruitsWithQuantity); // массив с объектами apples и grapes
