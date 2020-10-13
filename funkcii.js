@@ -1544,16 +1544,266 @@ do {
 // console.log(fruitsWithQuantity); // массив с объектами apples и grapes
 
 
-const yourName = function (text) {
-  let r = 0;
-  for (let i = 0; i < text.length; i += 1){
-    r = [i]
+// const yourName = function (text) {
+//   let r = 0;
+//   for (let i = 0; i < text.length; i += 1){
+//     r = [i]
+//   }
+//   console.log(r)
+// }
+
+// const sraka = function (coolback) {
+//   coolback('12345')
+// }
+// sraka(yourName)
+
+/* ................................ */
+
+// const array = [1, 2, 3, 4, 5, 6, 7, 8]
+
+// const getArray = function (ar, coolback) {
+//   const result = [] 
+//   for (const item of ar)
+//     if (coolback(item)) {
+//       result.push(item)
+//     }
+//   return result
+// }
+
+// console.log (getArray(array, x => x > 4))
+// console.log (getArray(array, x => x < 4))
+
+/* 
+*
+*
+*
+*
+*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> - ЗАДАЧА с дЗ -1 <<<<<<<<<<<
+*
+*
+*Функция mapArray(array, cb), принимает 1-м параметром array - массив чисел, а вторым параметром cb - функцию обратного вызова (callback). Функция mapArray создает новый массив numbers и заполняет его числами из массива array преобразованными функцией cb.
+
+Оформи создание массива numbers нужной длины используя new Array () и необходимый аргумент для задания длины, равной длине array.
+
+Напиши функцию обратного вызова addIndex , которая принимает два параметра - element и index и возвращает число - сумму element и index (сложение).
+
+Напиши функцию обратного вызова subIndex , которая принимает два параметра - element и index и возвращает число - разность element и index (вычитание).
+*
+ */
+  
+// function mapArray(array, cb) {
+//   'use strict';
+
+//   const numbers = new Array(array.length);
+//   for(let i = 0; i < array.length; i += 1) {
+//     const element = array[i];
+//     const index = i;
+//      numbers[i] = cb(element, index);
+//   }
+//   return numbers;
+// }
+// const arr = [1, 2, 3, 4, 5];
+
+// const addIndex = (element, index) => element + index ;
+// const subIndex = (element, index) => element - index;
+
+// console.log(mapArray(arr, addIndex));
+// // [1, 3, 5, 7, 9]
+// console.log(mapArray(arr, subIndex));
+// // [1, 1, 1, 1, 1]
+
+
+
+// x ===3  ?
+
+// const find = function (arr, coolback) {
+  
+//   for (const iter of arr) {
+//     if (coolback(iter)) {
+      
+//       return iter
+//     }
+//   }
+// }
+
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+// console.log(find(numbers, cb => cb === 3))
+// console.log(find(numbers, cb => cb === 21)) 
+
+
+// вернуть индекс елемента  x ===3
+/* 
+const findIndex = function (arr, coolback) {
+  for (let i = 0; i < arr.length; i +=1) {
+    if (coolback(arr[i])){
+
+    return [i]
+    }
   }
-  console.log(r)
 }
 
-const sraka = function (coolback) {
-  coolback(fruit => fruit.isFresh)
-}
-sraka(yourName)
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
+console.log(findIndex(numbers, indexElement => indexElement === 3))
+ */
+
+// //  Создаем колбек функцию и пришиваем лишки к каждому елементу масива.
+// const map = function (arr, coolback) {
+//   const createLi = []
+//   for (const velu of arr) {
+    
+//     createLi.push(coolback(velu))
+//   }
+//   return createLi
+// }
+ 
+// const films = ['Spiderman', 'Tomb-rider', 'Tor']
+// console.log(map(films, cb => `<li>${cb}</li>`))
+// //  "<li> Spiderman </li>"
+// // "<li> Tomb-rider </li>"
+// // "<li> Tor </li>"
+
+
+
+// ДЗ ------- 2
+/* 
+Callback функция и метод push
+
+Функция isUniq принимает три параметра - element, index и arr. Функция возвращает true или false в зависимости от того встречается ли элемент первый раз в массиве (true) или этот элемент в массиве уже встречался (false) .
+
+Функция isEven принимает один параметр - element. Функция возвращает true или false в зависимости от того является ли элемент четным числом или нет.
+
+Функция filterArray(array, cb), принимает 1-м параметром array - массив чисел, а вторым параметром cb - функцию обратного вызова (callback). Дополни тело функции так, чтобы функция filterArray заполняла новый пустой массив numbers только теми элементами из массива array, для которых вызов функции cb вернет true. */
+
+// function filterArray(array, cb) {
+//   'use strict';
+//   const numbers = [];
+//   console.log(numbers)
+//   for(let i = 0; i < array.length; i += 1) {
+//     const element = array[i];
+//     const index = i;
+//     // Write code under this line
+//     if ((cb(element, index, array))){
+//        numbers.push((element))
+//       }
+
+//   }
+  
+//   return numbers;
+// }
+
+// const arr  = [1,2,3,4,5,1,2,5];
+// // 
+// const isUniq = (element, index, arr) => arr.indexOf(element) === index;
+// const isEven = (element) => element % 2 === 0;
+
+// console.log(filterArray(arr, isUniq));
+// // [1, 2, 3, 4, 5]
+
+// console.log(filterArray(arr, isEven));
+// // [2, 4, 2]
+
+
+/* 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ДЗ - 3
+*
+Callback функция для получения одного вычисляемого значения массива
+
+Функции add, sub и mult принимают два параметра - accum и element , возвращает число - сумму, разность или произведение параметров.
+
+Дополни тело функции reduceArray строкой присвоения accum вызова функции cb. Функция reduceArray должна будет подсчитать сумму или разность или произведение всех элементов массива в зависимости от того какая именно из трех функция (add, mult, sub) будет передана в качестве cb. */
+// const mult = (accum, element) => accum * element;
+// const sub = (accum, element) => accum - element;
+
+// function reduceArray(array, cb, initial) {
+//   'use strict';
+//   let i;
+//   let accum;
+//   if(arguments.length >= 3) {
+//     accum = initial; // accum = 10
+//     i = 0;
+//   }
+//   if(arguments.length === 2) {
+//     accum = array[0]; // accum = 1
+//     i = 1;
+//   }
+//   for(i; i < array.length; i += 1) {
+//     const element = array[i];
+//    accum = (cb(accum, element))
+//   }
+//   return accum;
+// }
+
+// const add = (accum, element) => accum + element;
+// const arr  = [1,2,3,4,5];
+
+// console.log(reduceArray(arr, add)); // 15
+// console.log(reduceArray(arr, add, 10)); // 25
+
+// console.log(reduceArray(arr, mult)); // 120
+// console.log(reduceArray(arr, mult, 10)); // 1200
+
+// //console.log(reduceArray(arr, sub)); // -13
+// //console.log(reduceArray(arr, sub, 10)); // -5
+
+
+// const fn = function (x, y , z) {
+//   if(arguments.length  === 2){
+//  return x + y
+//   }
+//   return x + y + z 
+// }
+// console.log (fn(5, 5)) 
+// console.log (fn(5, 5, 5))
+
+
+const account = {
+  owner: 'Mango',
+  balance: 24000,
+  discount: 0.1,
+  orders: ['order-1', 'order-2', 'order-3'],
+  changeDiscount(value) {
+    this.discount = value; // Write code in this line
+  },
+  showOrders() {
+    return orders; // Write code in this line
+  },
+  addOrder(cost, order) {
+    balance -= cost; // Write code in this line
+    orders.push(order); // Write code in this line
+  },
+};
+const copyAccount =  Object.assign({},account);
+copyAccount.orders = [...account.orders];
+// копируем для автотестов ссылочные типы
+
+
+account.changeDiscount(0.15);
+console.log(account.discount); // 0.15
+
+//console.log(account.showOrders()); 
+// ['order-1', 'order-2', 'order-3']
+
+// account.addOrder(5000, 'order-4');
+//console.log(account.balance); // 19000
+
+//console.log(account.showOrders());
+// ['order-1', 'order-2', 'order-3', 'order-4']
+
+// 
+// Пример колбэка
+const fn = function (sayHiCoolback, sayByeCoolback, partyEnd) {
+  if (partyEnd ) {
+  return sayByeCoolback()
+  }
+  sayHiCoolback()
+}
+  
+const HiCoolback = function () {
+  console.log('Привет Друзья')
+}
+const ByeCoolback = function () {
+    console.log(' Пока Друзья')
+}
+
+fn(HiCoolback , ByeCoolback, true)
