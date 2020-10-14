@@ -1555,27 +1555,36 @@ do {
 /* 
 *
 *
-*
- */
+*/
 const people = [
-  { name: 'serg', years: 29, salary: 15000, childs: 'not'},
-  { name: 'ivan', years: 33, salary: 17500 ,childs: 'yes'},
-  { name: 'sacha', years: 72, salary: 21000 ,childs: 'yes'},
-  { name: 'david', years: 47, salary: 10000 ,childs: 'not'},
-  { name: 'tirex', years: 31, salary: 18200 ,childs: 'yes'},
-  { name: 'booby', years: 19, salary: 21000 ,childs: 'not'},
-
+ { name: 'serg', years: 29, salary: 15000, childs: 'not'},
+ { name: 'ivan', years: 33, salary: 17500 ,childs: 'yes'},
+ { name: 'sacha', years: 72, salary: 21000 ,childs: 'yes'},
+ { name: 'david', years: 47, salary: 10000 ,childs: 'not'},
+ { name: 'tirex', years: 31, salary: 18200 ,childs: 'yes'},
+ { name: 'booby', years: 19, salary: 21000 ,childs: 'not'},
 ];
-for (const item of people) {
-  if (item.childs === 'yes') {
-    console.log(item.name)
-  }
-}
-function findBestWorker(old, childsYesOrNot, money, coef) {
+
+function findBestWorker(array, coolback) {
+  const newArr =[];
+   
   
+  for (const item of array) {
+    const pased = coolback(item)
+    if (pased) {
+      newArr.push(item.name)
+      console.log (`Люди по вашим запросам ${item.name} - Зарплата: ${item.salary}грн.`)
+    }
+   
+  }
+  return newArr;
 }
 
+const ker = findBestWorker(people, df => df.childs === 'not' && df.years < 30)
+console.log(ker)
 
+ const ker2 = findBestWorker(people, ss => ss.childs.length === 3 && ss.salary < 15000 )
+ console.log(ker2)
 
 
 // const yourName = function (text) {
