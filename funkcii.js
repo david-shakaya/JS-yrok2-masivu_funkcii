@@ -1515,35 +1515,67 @@ do {
 // };
 
 // repid(5, logMessage); //колбек функц 0, колбек функц 1, колбек функц 2,  колбек функц 3
+/* 
+*
+*
+*
+*
+*>>>>>>>>>>Задача с конмпекта КОЛБЭК (расписано)
+ */
 
-const filter = function (array, test) { //Cоздаем функцию с 2-мя параматрами
-  const filteredElements = []; //Масив уцда будем пушить нужные свойства объекта
+// const filter = function (array, test) { //Cоздаем функцию с 2-мя параматрами
+//   const filteredElements = []; //Масив уцда будем пушить нужные свойства объекта
 
-  for (const element of array) {
-    const passed = test(element);  //Вызов колбэка 'тест(element)' это перебор каждого элемента объекта fruits.
-    console.log(passed);
+//   for (const element of array) {
+//     const passed = test(element);  //Вызов колбэка 'тест(element)' это перебор каждого элемента объекта fruits.
+//     console.log(passed);
 
-    if (passed) { //если при переборе обьекта fruits значение тру, запушь в пустой масив
-      filteredElements.push(element);
-    }
-  }
+//     if (passed) { //если при переборе обьекта fruits значение тру, запушь в пустой масив
+//       filteredElements.push(element);
+//     }
+//   }
 
-  return filteredElements;
-};
+//   return filteredElements;
+// };
 
-const fruits = [
-  { name: 'apples', quantity: 200, isFresh: true },
-  { name: 'grapes', quantity: 150, isFresh: false },
-  { name: 'bananas', quantity: 100, isFresh: true },
+// const fruits = [
+//   { name: 'apples', quantity: 200, isFresh: true },
+//   { name: 'grapes', quantity: 150, isFresh: false },
+//   { name: 'bananas', quantity: 100, isFresh: true },
+// ];
+
+// const freshFruits = filter(fruits, fruit => fruit.isFresh);
+// //вызов функции ФИЛЬТР. Присваеваем  - параметру (array) - аргумент (fruits) &&  ( парам. test - аргум. fruit => fruit.isFresh)
+// //аргум. fruit => fruit.isFresh означает, верни значение тру или фолс пройдясь по свойствам объекта
+// console.log(freshFruits); // массив с объектами apples и bananas
+
+// const fruitsWithQuantity = filter(fruits, fruit => fruit.quantity >= 120);
+// console.log(fruitsWithQuantity); // массив с объектами apples и grapes
+
+/* 
+*
+*
+*
+ */
+const people = [
+  { name: 'serg', years: 29, salary: 15000, childs: 'not'},
+  { name: 'ivan', years: 33, salary: 17500 ,childs: 'yes'},
+  { name: 'sacha', years: 72, salary: 21000 ,childs: 'yes'},
+  { name: 'david', years: 47, salary: 10000 ,childs: 'not'},
+  { name: 'tirex', years: 31, salary: 18200 ,childs: 'yes'},
+  { name: 'booby', years: 19, salary: 21000 ,childs: 'not'},
+
 ];
+for (const item of people) {
+  if (item.childs === 'yes') {
+    console.log(item.name)
+  }
+}
+function findBestWorker(old, childsYesOrNot, money, coef) {
+  
+}
 
-const freshFruits = filter(fruits, fruit => fruit.isFresh);
-//вызов функции ФИЛЬТР. Присваеваем  - параметру (array) - аргумент (fruits) &&  ( парам. test - аргум. fruit => fruit.isFresh)
-//аргум. fruit => fruit.isFresh означает, верни значение тру или фолс пройдясь по свойствам объекта
-console.log(freshFruits); // массив с объектами apples и bananas
 
-const fruitsWithQuantity = filter(fruits, fruit => fruit.quantity >= 120);
-console.log(fruitsWithQuantity); // массив с объектами apples и grapes
 
 
 // const yourName = function (text) {
