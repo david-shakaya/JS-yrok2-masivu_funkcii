@@ -1516,32 +1516,34 @@ do {
 
 // repid(5, logMessage); //колбек функц 0, колбек функц 1, колбек функц 2,  колбек функц 3
 
-// const filter = function (array, test) {
-//   const filteredElements = [];
+const filter = function (array, test) { //Cоздаем функцию с 2-мя параматрами
+  const filteredElements = []; //Масив уцда будем пушить нужные свойства объекта
 
-//   for (const element of array) {
-//     const passed = test(element);
-//     console.log(passed);
+  for (const element of array) {
+    const passed = test(element);  //Вызов колбэка 'тест(element)' это перебор каждого элемента объекта fruits.
+    console.log(passed);
 
-//     if (passed) {
-//       filteredElements.push(element);
-//     }
-//   }
+    if (passed) { //если при переборе обьекта fruits значение тру, запушь в пустой масив
+      filteredElements.push(element);
+    }
+  }
 
-//   return filteredElements;
-// };
+  return filteredElements;
+};
 
-// const fruits = [
-//   { name: 'apples', quantity: 200, isFresh: true },
-//   { name: 'grapes', quantity: 150, isFresh: false },
-//   { name: 'bananas', quantity: 100, isFresh: true },
-// ];
+const fruits = [
+  { name: 'apples', quantity: 200, isFresh: true },
+  { name: 'grapes', quantity: 150, isFresh: false },
+  { name: 'bananas', quantity: 100, isFresh: true },
+];
 
-// const freshFruits = filter(fruits, fruit => fruit.isFresh);
-// console.log(freshFruits); // массив с объектами apples и bananas
+const freshFruits = filter(fruits, fruit => fruit.isFresh);
+//вызов функции ФИЛЬТР. Присваеваем  - параметру (array) - аргумент (fruits) &&  ( парам. test - аргум. fruit => fruit.isFresh)
+//аргум. fruit => fruit.isFresh означает, верни значение тру или фолс пройдясь по свойствам объекта
+console.log(freshFruits); // массив с объектами apples и bananas
 
-// const fruitsWithQuantity = filter(fruits, fruit => fruit.quantity >= 120);
-// console.log(fruitsWithQuantity); // массив с объектами apples и grapes
+const fruitsWithQuantity = filter(fruits, fruit => fruit.quantity >= 120);
+console.log(fruitsWithQuantity); // массив с объектами apples и grapes
 
 
 // const yourName = function (text) {
@@ -1590,7 +1592,7 @@ do {
 Напиши функцию обратного вызова subIndex , которая принимает два параметра - element и index и возвращает число - разность element и index (вычитание).
 *
  */
-  
+
 // function mapArray(array, cb) {
 //   'use strict';
 
@@ -1617,10 +1619,10 @@ do {
 // x ===3  ?
 
 // const find = function (arr, coolback) {
-  
+
 //   for (const iter of arr) {
 //     if (coolback(iter)) {
-      
+
 //       return iter
 //     }
 //   }
@@ -1651,12 +1653,12 @@ console.log(findIndex(numbers, indexElement => indexElement === 3))
 // const map = function (arr, coolback) {
 //   const createLi = []
 //   for (const velu of arr) {
-    
+
 //     createLi.push(coolback(velu))
 //   }
 //   return createLi
 // }
- 
+
 // const films = ['Spiderman', 'Tomb-rider', 'Tor']
 // console.log(map(films, cb => `<li>${cb}</li>`))
 // //  "<li> Spiderman </li>"
@@ -1669,39 +1671,46 @@ console.log(findIndex(numbers, indexElement => indexElement === 3))
 /* 
 Callback функция и метод push
 
-Функция isUniq принимает три параметра - element, index и arr. Функция возвращает true или false в зависимости от того встречается ли элемент первый раз в массиве (true) или этот элемент в массиве уже встречался (false) .
+Функция isUniq принимает три параметра - element, index и arr. Функция возвращает true или false в зависимости от того встречается 
+ли элемент первый раз в массиве (true) или этот элемент в массиве уже встречался (false) .
 
-Функция isEven принимает один параметр - element. Функция возвращает true или false в зависимости от того является ли элемент четным числом или нет.
+Функция isEven принимает один параметр - element. Функция возвращает true или false в зависимости от того является ли элемент
+ четным числом или нет.
 
-Функция filterArray(array, cb), принимает 1-м параметром array - массив чисел, а вторым параметром cb - функцию обратного вызова (callback). Дополни тело функции так, чтобы функция filterArray заполняла новый пустой массив numbers только теми элементами из массива array, для которых вызов функции cb вернет true. */
+Функция filterArray(array, cb), принимает 1-м параметром array - массив чисел, а вторым параметром cb - функцию обратного вызова (callback).
+ Дополни тело функции так, чтобы функция filterArray заполняла новый пустой массив numbers только теми элементами из массива array, 
+ для которых вызов функции cb вернет true. */
 
-// function filterArray(array, cb) {
-//   'use strict';
-//   const numbers = [];
-//   console.log(numbers)
-//   for(let i = 0; i < array.length; i += 1) {
-//     const element = array[i];
-//     const index = i;
-//     // Write code under this line
-//     if ((cb(element, index, array))){
-//        numbers.push((element))
-//       }
+function filterArray(array, cb) {
+  'use strict';
+  const numbers = [];
+  console.log(numbers)
+  for(let i = 0; i < array.length; i += 1) {
+    const element = array[i];
+    const index = i;
+    // Write code under this line
+    if ((cb(element, index, array))){
+       numbers.push((element))
+      }
 
-//   }
-  
-//   return numbers;
-// }
+  }
 
-// const arr  = [1,2,3,4,5,1,2,5];
-// // 
-// const isUniq = (element, index, arr) => arr.indexOf(element) === index;
-// const isEven = (element) => element % 2 === 0;
+  return numbers;
+}
 
-// console.log(filterArray(arr, isUniq));
-// // [1, 2, 3, 4, 5]
+const arr  = [1,2,3,4,5,1,2,5];
+// 
+const isUniq = (element, index, arr) => arr.indexOf(element) === index;
+const isEven = (element) => element % 2 === 0;
+
+console.log(filterArray(arr, isUniq));
+// [1, 2, 3, 4, 5]
 
 // console.log(filterArray(arr, isEven));
-// // [2, 4, 2]
+// [2, 4, 2]
+
+
+
 
 
 /* 
@@ -1773,7 +1782,7 @@ const account = {
     orders.push(order); // Write code in this line
   },
 };
-const copyAccount =  Object.assign({},account);
+const copyAccount = Object.assign({}, account);
 copyAccount.orders = [...account.orders];
 // копируем для автотестов ссылочные типы
 
@@ -1793,17 +1802,20 @@ console.log(account.discount); // 0.15
 // 
 // Пример колбэка
 const fn = function (sayHiCoolback, sayByeCoolback, partyEnd) {
-  if (partyEnd ) {
-  return sayByeCoolback()
+  if (partyEnd) {
+    return sayByeCoolback()
   }
   sayHiCoolback()
 }
-  
+
 const HiCoolback = function () {
   console.log('Привет Друзья')
 }
 const ByeCoolback = function () {
-    console.log(' Пока Друзья')
+  console.log(' Пока Друзья')
 }
 
-fn(HiCoolback , ByeCoolback, true)
+fn(HiCoolback, ByeCoolback, true)
+
+
+
