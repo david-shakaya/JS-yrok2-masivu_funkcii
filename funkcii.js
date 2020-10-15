@@ -1625,23 +1625,31 @@ do {
 // console.log(findIndex(array, x => x === 5)) //3
 // console.log(findIndex(array, x => x === 734))//-1
 
+/* 
+*
+*
+*
+*
+ */
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> - Задача. Перебирает масив и добавляет елементы <li>${x}</li>
+// const arrs = ['dava', 'sraka', 'favs']
+// const newArr = []
 
-// >>>>>>>>
-const arrs = ['dava', 'sraka', 'favs']
-const newArr = []
 
+// function trns(x) {
+//   return `<li>${x}</li>`
+// }
 
-function trns(x) {
-  return `<li>${x}</li>`
-}
-
-function map(array, coolback) {
-  for (const item of array) {
-    newArr.push(coolback(item))
-  }
-  return newArr
-}
-console.log( map(arrs,trns))
+// function map(array, coolback) {
+//   for (const item of array) {
+//     newArr.push(coolback(item))
+//   }
+//   return newArr
+// }
+// console.log(map(arrs, trns))
+// 
+// 
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // const yourName = function (text) {
 //   let r = 0;
 //   for (let i = 0; i < text.length; i += 1){
@@ -1851,7 +1859,7 @@ Callback функция для получения одного вычисляе�
 // //console.log(reduceArray(arr, sub)); // -13
 // //console.log(reduceArray(arr, sub, 10)); // -5
 
-
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 // const fn = function (x, y , z) {
 //   if(arguments.length  === 2){
 //  return x + y
@@ -1861,7 +1869,7 @@ Callback функция для получения одного вычисляе�
 // console.log (fn(5, 5)) 
 // console.log (fn(5, 5, 5))
 
-
+/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 const account = {
   owner: 'Mango',
   balance: 24000,
@@ -1895,7 +1903,7 @@ console.log(account.discount); // 0.15
 //console.log(account.showOrders());
 // ['order-1', 'order-2', 'order-3', 'order-4']
 
-// 
+// /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 // Пример колбэка
 const fn = function (sayHiCoolback, sayByeCoolback, partyEnd) {
   if (partyEnd) {
@@ -1912,6 +1920,8 @@ const ByeCoolback = function () {
 }
 
 fn(HiCoolback, ByeCoolback, true)
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> - Задача ДЗ 5  <<<
 
 
 
