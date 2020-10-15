@@ -1555,38 +1555,93 @@ do {
 /* 
 *
 *
+*
+*
+*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Задача пример колбек, фильтр
 */
-const people = [
- { name: 'serg', years: 29, salary: 15000, childs: 'not'},
- { name: 'ivan', years: 33, salary: 17500 ,childs: 'yes'},
- { name: 'sacha', years: 72, salary: 21000 ,childs: 'yes'},
- { name: 'david', years: 47, salary: 10000 ,childs: 'not'},
- { name: 'tirex', years: 31, salary: 18200 ,childs: 'yes'},
- { name: 'booby', years: 19, salary: 21000 ,childs: 'not'},
-];
+// const people = [
+//  { name: 'serg', years: 29, salary: 15000, childs: 'not'},
+//  { name: 'ivan', years: 33, salary: 17500 ,childs: 'yes'},
+//  { name: 'sacha', years: 72, salary: 21000 ,childs: 'yes'},
+//  { name: 'david', years: 47, salary: 10000 ,childs: 'not'},
+//  { name: 'tirex', years: 31, salary: 18200 ,childs: 'yes'},
+//  { name: 'booby', years: 19, salary: 21000 ,childs: 'not'},
+// ];
 
-function findBestWorker(array, coolback) {
-  const newArr =[];
+// function findBestWorker(array, coolback) {
+//   const newArr =[];
    
   
-  for (const item of array) {
-    const pased = coolback(item)
-    if (pased) {
-      newArr.push(item.name)
-      console.log (`Люди по вашим запросам ${item.name} - Зарплата: ${item.salary}грн.`)
-    }
+//   for (const item of array) {
+//     const pased = coolback(item)
+//     if (pased) {
+//       newArr.push(item.name)
+//       console.log (`Люди по вашим запросам ${item.name} - Зарплата: ${item.salary}грн.`)
+//     }
    
-  }
-  return newArr;
+//   }
+//   return newArr;
+// }
+
+// const ker = findBestWorker(people, df => df.childs === 'not' && df.years < 30)
+// console.log(ker)
+
+//  const ker2 = findBestWorker(people, ss => ss.childs.length === 3 && ss.salary < 15000 )
+//  console.log(ker2)
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// Фильтр масива
+// const array = [1, 2, 3, 5, 6, 7, 8, 9, 19, 35, 23, 15, 67, 33, 22, 11];
+// const newArray = []
+// function filter(arr, coolback) {
+//   for (let i = 0; i < arr.length; i += 1){
+
+//     if (coolback(arr[i])) {
+//       newArray.push(arr[i])
+//     }
+//   }
+//   return newArray
+// }
+// console.log(filter(array, x => x > 2 && x < 7))
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+/* 
+-
+-
+-
+-
+->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Задача, возвращаем индекс элемента масива <<<<<<<<<<<<
+ */
+// const array = [1, 2, 3, 5, 6, 7, 8, 9, 19, 35, 23, 15, 67, 33, 22, 11];
+// function findIndex(arr, coolback) {
+//   for (let i = 0; i < arr.length; i += 1){
+//     if (coolback(arr[i])) {
+//        return i
+//      }
+//   }
+//   return -1
+// }
+// console.log(findIndex(array, x => x === 2)) //1
+// console.log(findIndex(array, x => x === 5)) //3
+// console.log(findIndex(array, x => x === 734))//-1
+
+
+// >>>>>>>>
+const arrs = ['dava', 'sraka', 'favs']
+const newArr = []
+
+
+function trns(x) {
+  return `<li>${x}</li>`
 }
 
-const ker = findBestWorker(people, df => df.childs === 'not' && df.years < 30)
-console.log(ker)
-
- const ker2 = findBestWorker(people, ss => ss.childs.length === 3 && ss.salary < 15000 )
- console.log(ker2)
-
-
+function map(array, coolback) {
+  for (const item of array) {
+    newArr.push(coolback(item))
+  }
+  return newArr
+}
+console.log( map(arrs,trns))
 // const yourName = function (text) {
 //   let r = 0;
 //   for (let i = 0; i < text.length; i += 1){
