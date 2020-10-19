@@ -1924,4 +1924,17 @@ fn(HiCoolback, ByeCoolback, true)
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> - Задача ДЗ 5  <<<
 
 
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ЗАМЫКАНИЯ <<<<<<<
 
+function fn1(x) {
+  
+  const y = 2
+
+  return function (q) {
+    console.log(x + y +1)
+  }
+}
+
+const rec = fn1(3)
+
+rec(3)
