@@ -1925,16 +1925,83 @@ fn(HiCoolback, ByeCoolback, true)
 
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ЗАМЫКАНИЯ <<<<<<<
-
+// Замыкания функция внутри функции
 function fn1(x) {
   
   const y = 2
 
-  return function (q) {
+  return function () {
     console.log(x + y +1)
   }
 }
 
 const rec = fn1(3)
 
-rec(3)
+rec()
+// >>>>>>>>>>>>>>>>>>
+
+function count() {
+  
+  let total = 0;
+  
+
+   function increment() {
+  console.log(total += 1) 
+  }
+  function decrement() {
+  console.log(total -= 1) 
+  }
+  return {
+increment, decrement
+  } 
+  
+}
+
+
+const sr = count()
+sr.increment()
+sr.increment()
+sr.decrement()
+
+
+// >>>>>>>>>>>>>>>>>>
+
+function nameDich(nameD) {
+  
+
+  function nameKuc(nameK) {
+    return ( `Повар ${nameD} готовит блюдо ${nameK}`)
+  }
+
+  return nameKuc
+
+}
+const prom = nameDich('SERGEY')
+
+console.log(prom('Макароны по флотски'))
+console.log(prom('СУП'))
+
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  /* 
+  /
+  /
+  /
+  /
+  /
+  /
+   */
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> - МОДУЛЬ 5 - Конструкторы, прототипы, ооп <<<<<<<<<<<<<
+ 
+  //  Функции - конструкторы. 
+  //Имена всех Функций - конструкторов пишуться с большой буквы!
+
+const Manager = function () {
+  this.name = 'vasya'
+  this.age = 16
+} 
+const fnr = new Manager   
+console.log(fnr)  
+
+  
+// https://www.youtube.com/watch?v=-WXnsjoPCmg&feature=youtu.be     
+//  Остановился на 28.32
