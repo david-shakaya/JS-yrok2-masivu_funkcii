@@ -1785,29 +1785,29 @@ Callback функция и метод push
  Дополни тело функции так, чтобы функция filterArray заполняла новый пустой массив numbers только теми элементами из массива array, 
  для которых вызов функции cb вернет true. */
 
-function filterArray(array, cb) {
-  'use strict';
-  const numbers = [];
-  console.log(numbers)
-  for(let i = 0; i < array.length; i += 1) {
-    const element = array[i];
-    const index = i;
-    // Write code under this line
-    if ((cb(element, index, array))){
-       numbers.push((element))
-      }
+// function filterArray(array, cb) {
+//   'use strict';
+//   const numbers = [];
+//   console.log(numbers)
+//   for(let i = 0; i < array.length; i += 1) {
+//     const element = array[i];
+//     const index = i;
+//     // Write code under this line
+//     if ((cb(element, index, array))){
+//        numbers.push((element))
+//       }
 
-  }
+//   }
 
-  return numbers;
-}
+//   return numbers;
+// }
 
-const arr  = [1,2,3,4,5,1,2,5];
-// 
-const isUniq = (element, index, arr) => arr.indexOf(element) === index;
-const isEven = (element) => element % 2 === 0;
+// const arr  = [1,2,3,4,5,1,2,5];
+// // 
+// const isUniq = (element, index, arr) => arr.indexOf(element) === index;
+// const isEven = (element) => element % 2 === 0;
 
-console.log(filterArray(arr, isUniq));
+// console.log(filterArray(arr, isUniq));
 // [1, 2, 3, 4, 5]
 
 // console.log(filterArray(arr, isEven));
@@ -1870,29 +1870,29 @@ Callback функция для получения одного вычисляе�
 // console.log (fn(5, 5, 5))
 
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-const account = {
-  owner: 'Mango',
-  balance: 24000,
-  discount: 0.1,
-  orders: ['order-1', 'order-2', 'order-3'],
-  changeDiscount(value) {
-    this.discount = value; // Write code in this line
-  },
-  showOrders() {
-    return orders; // Write code in this line
-  },
-  addOrder(cost, order) {
-    balance -= cost; // Write code in this line
-    orders.push(order); // Write code in this line
-  },
-};
-const copyAccount = Object.assign({}, account);
-copyAccount.orders = [...account.orders];
-// копируем для автотестов ссылочные типы
+// const account = {
+//   owner: 'Mango',
+//   balance: 24000,
+//   discount: 0.1,
+//   orders: ['order-1', 'order-2', 'order-3'],
+//   changeDiscount(value) {
+//     this.discount = value; // Write code in this line
+//   },
+//   showOrders() {
+//     return orders; // Write code in this line
+//   },
+//   addOrder(cost, order) {
+//     balance -= cost; // Write code in this line
+//     orders.push(order); // Write code in this line
+//   },
+// };
+// const copyAccount = Object.assign({}, account);
+// copyAccount.orders = [...account.orders];
+// // копируем для автотестов ссылочные типы
 
 
-account.changeDiscount(0.15);
-console.log(account.discount); // 0.15
+// account.changeDiscount(0.15);
+// console.log(account.discount); // 0.15
 
 //console.log(account.showOrders()); 
 // ['order-1', 'order-2', 'order-3']
@@ -1904,82 +1904,82 @@ console.log(account.discount); // 0.15
 // ['order-1', 'order-2', 'order-3', 'order-4']
 
 // /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-// Пример колбэка
-const fn = function (sayHiCoolback, sayByeCoolback, partyEnd) {
-  if (partyEnd) {
-    return sayByeCoolback()
-  }
-  sayHiCoolback()
-}
+// // Пример колбэка
+// const fn = function (sayHiCoolback, sayByeCoolback, partyEnd) {
+//   if (partyEnd) {
+//     return sayByeCoolback()
+//   }
+//   sayHiCoolback()
+// }
 
-const HiCoolback = function () {
-  console.log('Привет Друзья')
-}
-const ByeCoolback = function () {
-  console.log(' Пока Друзья')
-}
+// const HiCoolback = function () {
+//   console.log('Привет Друзья')
+// }
+// const ByeCoolback = function () {
+//   console.log(' Пока Друзья')
+// }
 
-fn(HiCoolback, ByeCoolback, true)
+// fn(HiCoolback, ByeCoolback, true)
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> - Задача ДЗ 5  <<<
 
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ЗАМЫКАНИЯ <<<<<<<
 // Замыкания функция внутри функции
-function fn1(x) {
+// function fn1(x) {
   
-  const y = 2
+//   const y = 2
 
-  return function () {
-    console.log(x + y +1)
-  }
-}
+//   return function () {
+//     console.log(x + y +1)
+//   }
+// }
 
-const rec = fn1(3)
+// const rec = fn1(3)
 
-rec()
-// >>>>>>>>>>>>>>>>>>
+// rec()
+// // >>>>>>>>>>>>>>>>>>
 
-function count() {
+// function count() {
   
-  let total = 0;
-  
-
-   function increment() {
-  console.log(total += 1) 
-  }
-  function decrement() {
-  console.log(total -= 1) 
-  }
-  return {
-increment, decrement
-  } 
-  
-}
-
-
-const sr = count()
-sr.increment()
-sr.increment()
-sr.decrement()
-
-
-// >>>>>>>>>>>>>>>>>>
-
-function nameDich(nameD) {
+//   let total = 0;
   
 
-  function nameKuc(nameK) {
-    return ( `Повар ${nameD} готовит блюдо ${nameK}`)
-  }
+//    function increment() {
+//   console.log(total += 1) 
+//   }
+//   function decrement() {
+//   console.log(total -= 1) 
+//   }
+//   return {
+// increment, decrement
+//   } 
+  
+// }
 
-  return nameKuc
 
-}
-const prom = nameDich('SERGEY')
+// const sr = count()
+// sr.increment()
+// sr.increment()
+// sr.decrement()
 
-console.log(prom('Макароны по флотски'))
-console.log(prom('СУП'))
+
+// // >>>>>>>>>>>>>>>>>>
+
+// function nameDich(nameD) {
+  
+
+//   function nameKuc(nameK) {
+//     return ( `Повар ${nameD} готовит блюдо ${nameK}`)
+//   }
+
+//   return nameKuc
+
+// }
+// const prom = nameDich('SERGEY')
+
+// console.log(prom('Макароны по флотски'))
+// console.log(prom('СУП'))
 
   // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   /* 
@@ -1992,16 +1992,52 @@ console.log(prom('СУП'))
    */
   // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> - МОДУЛЬ 5 - Конструкторы, прототипы, ооп <<<<<<<<<<<<<
  
-  //  Функции - конструкторы. 
+  //  Функции - конструкторы - имеют одинаковый набор свойства но значения могут быть разные.
+  // С её помощю мы можем ДИНАМИЧЕСКИ создавать обьекты!!!
   //Имена всех Функций - конструкторов пишуться с большой буквы!
 
-const Manager = function () {
-  this.name = 'vasya'
-  this.age = 16
+const Manager = function (nameManager, yearsOld) {  // cоздаем функцию-конструктор
+  this.name = nameManager           // Записывает в обьект свойства. Ключ и значение свойства
+  this.age = yearsOld                          //Manager {name: "Vasya", age: 16}
 } 
-const fnr = new Manager   
-console.log(fnr)  
-
+Manager.prototype.abbAge = function (x) {  // <-- В Функ - конструкт. методы(функии) обекта создаються так.
   
-// https://www.youtube.com/watch?v=-WXnsjoPCmg&feature=youtu.be     
-//  Остановился на 28.32
+    this.age += x;                       // Метод при его вызове добавляет число х
+  }
+
+
+const fnr = new Manager('Vasya', 16)
+// Переменной присваеваем "new Manager" что по сути и создает обект куда записываються свойства, указанные выше. 
+
+console.log(fnr)  //Manager {name: "Vasya", age: 16}
+
+fnr.abbAge(1)   //Вызов метода(функц) - добавляет +1 к значению обьекта  = {age: 17}
+  
+console.log(fnr)  //Manager {name: "Vasya", age: 17}
+
+
+
+// >>>>>>>>>>>>>>> еще один пример
+const Fn = function (name, age, married, howManyChildren, job) {
+  this.name = name
+  this.age = age
+  this.married = married
+  this.howManyChildren = howManyChildren
+  this.haveJob = job
+}
+
+Fn.prototype.giveYouJob = function (name,howManyChildren) {
+  if (this.howManyChildren < 1) {
+    this.haveJob = true;
+    console.log(`Ура, ${this.name} вы нам подходите, ведь у вас ${this.howManyChildren} детей !`)
+  }
+}
+
+const vasya = new Fn('Vasya', 29, true, 2, false)
+const david = new Fn ('David', 29, true, 0, false)
+
+console.log(vasya)
+vasya.giveYouJob()
+
+david.giveYouJob()
+console.log(david)
