@@ -1570,15 +1570,15 @@ do {
 
 // function findBestWorker(array, coolback) {
 //   const newArr =[];
-   
-  
+
+
 //   for (const item of array) {
 //     const pased = coolback(item)
 //     if (pased) {
 //       newArr.push(item.name)
 //       console.log (`Люди по вашим запросам ${item.name} - Зарплата: ${item.salary}грн.`)
 //     }
-   
+
 //   }
 //   return newArr;
 // }
@@ -1927,7 +1927,7 @@ Callback функция для получения одного вычисляе�
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ЗАМЫКАНИЯ <<<<<<<
 // Замыкания функция внутри функции
 // function fn1(x) {
-  
+
 //   const y = 2
 
 //   return function () {
@@ -1941,9 +1941,9 @@ Callback функция для получения одного вычисляе�
 // // >>>>>>>>>>>>>>>>>>
 
 // function count() {
-  
+
 //   let total = 0;
-  
+
 
 //    function increment() {
 //   console.log(total += 1) 
@@ -1954,7 +1954,7 @@ Callback функция для получения одного вычисляе�
 //   return {
 // increment, decrement
 //   } 
-  
+
 // }
 
 
@@ -1967,7 +1967,7 @@ Callback функция для получения одного вычисляе�
 // // >>>>>>>>>>>>>>>>>>
 
 // function nameDich(nameD) {
-  
+
 
 //   function nameKuc(nameK) {
 //     return ( `Повар ${nameD} готовит блюдо ${nameK}`)
@@ -1981,63 +1981,123 @@ Callback функция для получения одного вычисляе�
 // console.log(prom('Макароны по флотски'))
 // console.log(prom('СУП'))
 
-  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-  /* 
-  /
-  /
-  /
-  /
-  /
-  /
-   */
-  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> - МОДУЛЬ 5 - Конструкторы, прототипы, ооп <<<<<<<<<<<<<
- 
-  //  Функции - конструкторы - имеют одинаковый набор свойства но значения могут быть разные.
-  // С её помощю мы можем ДИНАМИЧЕСКИ создавать обьекты!!!
-  //Имена всех Функций - конструкторов пишуться с большой буквы!
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+/* 
+/
+/
+/
+/
+/
+/
+ */
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> - МОДУЛЬ 5 - Конструкторы, прототипы, ооп <<<<<<<<<<<<<
 
-const Manager = function (nameManager, yearsOld) {  // cоздаем функцию-конструктор
-  this.name = nameManager           // Записывает в обьект свойства. Ключ и значение свойства
-  this.age = yearsOld                          //Manager {name: "Vasya", age: 16}
-} 
-Manager.prototype.abbAge = function (x) {  // <-- В Функ - конструкт. методы(функии) обекта создаються так.
+//  Функции - конструкторы - имеют одинаковый набор свойства но значения могут быть разные.
+// С её помощю мы можем ДИНАМИЧЕСКИ создавать обьекты!!!
+//Имена всех Функций - конструкторов пишуться с большой буквы!
+
+// const Manager = function (nameManager, yearsOld) {  // cоздаем функцию-конструктор
+//   this.name = nameManager           // Записывает в обьект свойства. Ключ и значение свойства
+//   this.age = yearsOld                          //Manager {name: "Vasya", age: 16}
+// }
+// Manager.prototype.abbAge = function (x) {  // <-- В Функ - конструкт. методы(функии) обекта создаються так.
+
+//   this.age += x;                       // Метод при его вызове добавляет число х
+// }
+
+
+// const fnr = new Manager('Vasya', 16)
+// // Переменной присваеваем "new Manager" что по сути и создает обект куда записываються свойства, указанные выше. 
+
+// console.log(fnr)  //Manager {name: "Vasya", age: 16}
+
+// fnr.abbAge(1)   //Вызов метода(функц) - добавляет +1 к значению обьекта  = {age: 17}
+
+// console.log(fnr)  //Manager {name: "Vasya", age: 17}
+
+
+
+// // >>>>>>>>>>>>>>> еще один пример
+// const Fn = function (name, age, married, howManyChildren, job) {
+//   this.name = name
+//   this.age = age
+//   this.married = married
+//   this.howManyChildren = howManyChildren
+//   this.haveJob = job
+// }
+
+// Fn.prototype.giveYouJob = function (name, howManyChildren) {
+//   if (this.howManyChildren < 1) {
+//     this.haveJob = true;
+//     console.log(`Ура, ${this.name} вы нам подходите, ведь у вас ${this.howManyChildren} детей !`)
+//   }
+// }
+
+// const vasya = new Fn('Vasya', 29, true, 2, false)
+// const david = new Fn('David', 29, true, 0, false)
+
+// console.log(vasya)
+// vasya.giveYouJob()
+
+// david.giveYouJob()
+// console.log(david)
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ДЗ Задача -1 - <<<<<<<<<<<<<<<<<<<<<<<<<\
+
+// Напиши функцию-конструктор Account, которая создает объект со свойствами login и email.
+
+// В prototype функции-конструктора добавь метод getInfo(), который возвращает строку со значениями свойств login и email объекта.
+// const Account = function (name, maill) {
+
+//   this.login = name
+//   this.email = maill
+// }
+// Account.prototype.getInfo = function () {
   
-    this.age += x;                       // Метод при его вызове добавляет число х
-  }
+//   return   `login : ${this.login}, email: ${this.email}`
 
+// }
 
-const fnr = new Manager('Vasya', 16)
-// Переменной присваеваем "new Manager" что по сути и создает обект куда записываються свойства, указанные выше. 
+//  const mango = new Account( 'Mangozedog', 'mango@dog.woof');
+// console.log(mango.getInfo());
+// const poly = new Account( 'Poly', 'poly@mail.com');
+// console.log(poly.getInfo());
 
-console.log(fnr)  //Manager {name: "Vasya", age: 16}
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+    //                     ЧАСТЬ " 2"    КЛАСЫ
+    // Object.create()   //Создает новый новый обьект используя существующий обьект как прототип для новосозданного обьекта.
 
-fnr.abbAge(1)   //Вызов метода(функц) - добавляет +1 к значению обьекта  = {age: 17}
-  
-console.log(fnr)  //Manager {name: "Vasya", age: 17}
+// const objA = {
+//   x: 1,
+//   y: 2
+// }
+// const objB = Object.create(objA)
+// // Конструкция позволяет обекту  objB как бы получить ссылку на обьект  objA. И записывает в __proto__ свойства обьекта objA.
 
+// objB.a = 3
+// objB.b = 4
+// console.log(objB)
+// { a: 3, b: 4 }
+// a: 3
+// b: 4
+// __proto__:
+// x: 1
+// y: 2
+/* 
+ */
+//     // Еще Пример:
+//     const person = {
+//   isHuman: false,
+//   printIntroduction: function() {
+//     console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
+//   }
+// };
 
+// const me = Object.create(person); // Конструкция какбы
 
-// >>>>>>>>>>>>>>> еще один пример
-const Fn = function (name, age, married, howManyChildren, job) {
-  this.name = name
-  this.age = age
-  this.married = married
-  this.howManyChildren = howManyChildren
-  this.haveJob = job
-}
+// me.name = 'Matthew'; // "name" is a property set on "me", but not on "person"
+// me.isHuman = true; // inherited properties can be overwritten
 
-Fn.prototype.giveYouJob = function (name,howManyChildren) {
-  if (this.howManyChildren < 1) {
-    this.haveJob = true;
-    console.log(`Ура, ${this.name} вы нам подходите, ведь у вас ${this.howManyChildren} детей !`)
-  }
-}
-
-const vasya = new Fn('Vasya', 29, true, 2, false)
-const david = new Fn ('David', 29, true, 0, false)
-
-console.log(vasya)
-vasya.giveYouJob()
-
-david.giveYouJob()
-console.log(david)
+// me.printIntroduction();
+// // expected output: "My name is Matthew. Am I human? true"
