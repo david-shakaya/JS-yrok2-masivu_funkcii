@@ -2074,9 +2074,10 @@ Callback функция для получения одного вычисляе�
 // }
 // const objB = Object.create(objA)
 // // Конструкция позволяет обекту  objB как бы получить ссылку на обьект  objA. И записывает в __proto__ свойства обьекта objA.
-
 // objB.a = 3
 // objB.b = 4
+
+
 // console.log(objB)
 // { a: 3, b: 4 }
 // a: 3
@@ -2101,3 +2102,232 @@ Callback функция для получения одного вычисляе�
 
 // me.printIntroduction();
 // // expected output: "My name is Matthew. Am I human? true"
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+// const objA = {
+//   x: 1,
+//   y: 2 
+// }
+// const objB = (Object.create(objA))
+// console.log(objB)
+
+// objB.a = 5
+// objB.b = 6
+
+// >>>>>>>>>> - Повторяем фун-ции конструкторы.
+
+// function Hero(nameHero, xpHero) {
+//   this.name = nameHero;
+//   this.xp = xpHero
+// }
+
+// Hero.prototype.chengName = function(newName) {
+
+// this.name = newName
+// }
+
+// const qwe = new Hero('Robotron', 1000);
+// console.log(qwe)
+// qwe.chengName('Joposranchik')
+// console.log(qwe)
+
+/* 
+*
+*/
+// >>>>>>>>>>>>> - Класы - <<<<<<<<<<<<!
+// Класы, то же самое что и функции конструкторы НО имеют более современный синтаксис
+
+// class Hero {   //Создаем клас(функцию конструкт)
+//   constructor(nameHero, xpHero){     //  В constructor передаем параметры (nameHero, xpHero)
+//   this.name = nameHero             // Сюда, в клас Hero добавляем свойства
+//     this.xp = xpHero
+//   }
+  
+//   chengeName(newName) {
+//     this.name = newName  // Добавляем метод(функцию) класа. Который при вызове меняет имя. Он автоматом попадает в 'prototype'.
+//     console.log(` Вы сменили имя на, ${this.name}`)
+//   }
+
+//   gainHp(xpUp) {
+//     this.xp += xpUp  // Добавляем метод(функцию) плюсует XP
+//     console.log(`Ирок ${this.name}, получил ${xpUp} опыта`)
+//   }
+// }
+
+
+// const mango = new Hero('mango', 1000)   //Создаем новый обьект 'new Hero' И записываем аргументы.
+
+// console.log(mango)  
+
+// mango.chengeName('Vasya') //Вызываем метод chengeName и меняем имя.
+// console.log(mango)
+
+// mango.gainHp(2000)
+// console.log(mango)
+
+// >>>>>>>>>>>>>>>>>>>>>>>> - Гетеры и сеттыеры 
+// Зарезервированые методи которые возвращают Свойтво либо перезаписывает. Пишеться внцтри тела класа.
+// class Hero {
+//   constructor(nameHero, xpHero) {
+//     this._name = nameHero
+//     this.xp = xpHero
+    
+//   }
+//   get name() {
+//     return this._name;
+//   }
+
+//   set name(value) {
+//     this._name = value;
+//   }
+
+// }
+// const mango = new Hero('Mango', 500) 
+// console.log(mango)
+// console.log(mango.name) 
+// mango.name = 'SRAKA'
+// console.log(mango.name) 
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> - Задача с дз № 2 - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+// Напиши класс User для создания пользователя со следующим свойствами:
+
+    // name - строка
+    // age - число
+    // followers - число
+
+// Добавь метод getInfo(), который, выводит строку: User ${имя} is ${возраст} years old and has ${кол-во фоловеров} followers
+
+// class User {
+//   constructor(name, age, followers) {
+//     this.name = name
+//     this.age = age
+//     this.followers = followers 
+//   }
+
+//   getInfo() {
+//      return(`User ${this.name} is ${this.age} years old and has ${this.followers} followers`)
+//    }
+// }
+
+// const mango = new User('mango', 21, 134)
+// console.log(mango.getInfo())
+
+// const poly = new User( 'Poly', 3, 17);
+//  console.log(poly.getInfo());
+
+ 
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> - Задача с дз № 3 - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+/* Напиши класс Storage, который будет создавать объекты для управления складом товаров.
+ При вызове будет получать один аргумент - начальный массив товаров, и записывать его в свойство items.
+
+Добавь методы класса:
+
+    getItems() - возвращает массив текущих товаров
+    addItem(item) - получает новый товар и добавляет его к текущим
+    removeItem(item) - получает товар и, если он есть, удаляет его из текущих
+
+//  
+*/
+// class Storage {
+//   constructor(items) {
+//     this.items = items
+//   }
+  
+//   getItems() {
+//     return this.items
+//   }
+
+//   addItem(item) {
+//     this.items.push(item)
+//   }
+//   // removeItem(item) {
+//   //   for (const elem of this.items) {
+//   //     if (elem === item) {
+//   //     this.items.splice()
+//   //     }
+//   //   }
+
+//   // }
+//   removeItem(item) {
+//     for (let i = 0; i < this.items.length; i += 1){
+//       // const indexElem = this.items[i]
+//       if (this.items[i] === item) {
+//         this.items.splice([i],1)
+//       }
+//     }
+//   }
+  
+// }
+
+// const goods = [
+//   'Нанитоиды',
+//   'Пролонгер',
+//   'Железные жупи',
+//   'Антигравитатор'
+// ];
+
+//  const storage = new Storage(goods);
+
+// console.log(storage.getItems());
+
+// storage.addItem('Дроид');
+// console.log(storage.getItems());
+
+// storage.removeItem('Пролонгер');
+// console.log(storage.getItems());
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> - Задача с дз № 4 - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+/* 
+переиспользование методов класса
+
+Напиши класс StringBuilder. На вход он получает один параметр - строку, которую записывает в свойство _value.
+
+Добавь классу следующий функционал:
+
+    Геттер value - возвращает текущее значение поля _value
+    Метод append(str) - получает параметр str (строку) и добавляет ее в конец _value
+    Метод prepend(str) - получает параметр str (строку) и добавляет ее в начало value
+    Метод pad(str) - получает параметр str (строку) и добавляет ее в начало и в конец _value
+
+Метод pad должен использовать методы append и prepend 
+*/
+
+class StringBuilder {
+  constructor(w) {
+    this._value = w
+  }
+  get value() {
+    return this._value
+  }
+
+  append(str) {
+    
+    this._value =  this._value + str  
+  }
+
+  prepend(str) {
+    
+    this._value =  str + this._value  
+  }
+
+  pad(str) {
+  this.append(str)
+    this.prepend(str)
+  }
+  
+}
+
+const builder = new StringBuilder('.')
+
+builder.append('^');
+console.log(builder.value)
+
+builder.prepend('^');
+console.log(builder.value)
+
+builder.pad('=');
+console.log(builder.value)
+ 
