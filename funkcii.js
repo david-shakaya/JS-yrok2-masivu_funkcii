@@ -2295,39 +2295,95 @@ Callback функция для получения одного вычисляе�
 Метод pad должен использовать методы append и prepend 
 */
 
-class StringBuilder {
-  constructor(w) {
-    this._value = w
-  }
-  get value() {
-    return this._value
-  }
+// class StringBuilder {
+//   constructor(w) {
+//     this._value = w
+//   }
+//   get value() {
+//     return this._value
+//   }
 
-  append(str) {
+//   append(str) {
     
-    this._value =  this._value + str  
-  }
+//     this._value =  this._value + str  
+//   }
 
-  prepend(str) {
+//   prepend(str) {
     
-    this._value =  str + this._value  
-  }
+//     this._value =  str + this._value  
+//   }
 
-  pad(str) {
-  this.append(str)
-    this.prepend(str)
-  }
+//   pad(str) {
+//   this.append(str)
+//     this.prepend(str)
+//   }
   
-}
+// }
 
-const builder = new StringBuilder('.')
+// const builder = new StringBuilder('.')
 
-builder.append('^');
-console.log(builder.value)
+// builder.append('^');
+// console.log(builder.value)
 
-builder.prepend('^');
-console.log(builder.value)
+// builder.prepend('^');
+// console.log(builder.value)
 
-builder.pad('=');
-console.log(builder.value)
+// builder.pad('=');
+// console.log(builder.value)
  
+
+// Напиши класс Car с указанными свойствами и методами.
+
+// class Car {
+  /*
+   * Добавь `статический` метод 
+   * `getSpecs(car)`, который принимает 
+   * объект-машину как параметр 
+   * и возвращает шаблонную строку 
+   * со свойствами и значениями объекта.
+   * Свойства: 
+   *   maxSpeed, 
+   *   speed, 
+   *   isOn, 
+   *   distance,
+   *   price
+   * Пример строки, полученной этим методом:
+   * 'maxSpeed: 200, speed: 50, isOn: true, distance: 100, price: 2000'
+   */
+
+
+
+class Car {
+ // Write code under this line
+  static getSpecs(car) {
+    return car
+    
+ }
+  constructor(){}
+  get price() {}
+  set price(value) {}
+  turnOn() {}
+  turnOff() {}
+  accelerate(value) {}
+  decelerate(value) {}
+  drive(hours) {}
+}
+ 
+const mustang = new Car({ maxSpeed: 200, price: 2000 });
+mustang.turnOn();
+mustang.accelerate(50);
+mustang.drive(2);
+
+console.log(Car.getSpecs(mustang));
+// 'maxSpeed: 200, speed: 50, isOn: true, distance: 100, price: 2000'
+
+mustang.decelerate(20);
+mustang.drive(1);
+mustang.turnOff();
+
+// console.log(Car.getSpecs(mustang));
+// 'maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000'
+
+// console.log(mustang.price); // 2000
+mustang.price = 4000;
+// console.log(mustang.price); // 4000
