@@ -2356,10 +2356,19 @@ Callback функция для получения одного вычисляе�
 class Car {
  // Write code under this line
   static getSpecs(car) {
-    return car
+    
+    return  (
+    `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, price: ${car.price} 
+     `
+     
+    )
     
  }
-  constructor(){}
+  constructor(value) {
+    this.speed = 0
+    this.price = value.price
+    this.maxSpeed = value.maxSpeed
+  }
   get price() {}
   set price(value) {}
   turnOn() {}
