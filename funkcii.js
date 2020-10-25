@@ -2420,3 +2420,11 @@ console.log(Car.getSpecs(mustang));
 mustang.price = 4000;
 // console.log(mustang.price); // 4000
 
+const users = [
+  { name: 'Mango', isActive: true },
+  { name: 'Poly', isActive: false },
+  { name: 'Ajax', isActive: true },
+  { name: 'Chelsey', isActive: false },
+];
+
+console.log(users.find(u => u.name === 'Ajax')); // 6
