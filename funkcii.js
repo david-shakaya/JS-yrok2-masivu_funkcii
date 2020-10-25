@@ -2352,30 +2352,53 @@ Callback функция для получения одного вычисляе�
    */
 
 
-
 class Car {
  // Write code under this line
   static getSpecs(car) {
     
-    return  (
-    `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, price: ${car.price} 
-     `
-     
-    )
+    return  `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car.price}`
     
  }
   constructor(value) {
-    this.speed = 0
-    this.price = value.price
-    this.maxSpeed = value.maxSpeed
+    this.speed = 0;
+    this.price = value.price;
+    this.maxSpeed = value.maxSpeed;
+    this.isOn = false;
+    this.distance = 0;
   }
-  get price() {}
-  set price(value) {}
-  turnOn() {}
-  turnOff() {}
-  accelerate(value) {}
-  decelerate(value) {}
-  drive(hours) {}
+  get price() {
+    return this._price;
+  }
+  
+  set price(value) {
+    return this._price = value;
+  }
+  turnOn() {
+
+    this.isOn = true;
+  }
+  turnOff() {
+    this.isOn = false;
+    this.speed = 0;
+  }
+  accelerate(value) {
+    if ( this.speed + value <= this.maxSpeed) { 
+      this.speed += value;
+    }
+    else{this.speed = this.maxSpeed}
+  }
+  decelerate(value) {
+    if(this.speed - value  > 0){
+      this.speed -= value;
+    }
+    else {this.speed = 0}
+  }
+  drive(hours) {
+    if(this.isOn ===true){
+      this.distance += this.speed * hours;
+      }
+    // this.hours = hours
+  }
 }
  
 const mustang = new Car({ maxSpeed: 200, price: 2000 });
@@ -2390,9 +2413,10 @@ mustang.decelerate(20);
 mustang.drive(1);
 mustang.turnOff();
 
-// console.log(Car.getSpecs(mustang));
+console.log(Car.getSpecs(mustang));
 // 'maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000'
 
 // console.log(mustang.price); // 2000
 mustang.price = 4000;
 // console.log(mustang.price); // 4000
+
