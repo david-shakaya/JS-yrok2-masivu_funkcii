@@ -2332,6 +2332,10 @@ Callback функция для получения одного вычисляе�
 // console.log(builder.value)
  
 
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> - Задача с дз № 5 - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
 // Напиши класс Car с указанными свойствами и методами.
 
 // class Car {
@@ -2352,79 +2356,317 @@ Callback функция для получения одного вычисляе�
    */
 
 
-class Car {
- // Write code under this line
-  static getSpecs(car) {
+// class Car {
+
+//   static getSpecs(car) {
     
-    return  `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car.price}`
+//     return  `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car.price}`
     
- }
-  constructor(value) {
-    this.speed = 0;
-    this.price = value.price;
-    this.maxSpeed = value.maxSpeed;
-    this.isOn = false;
-    this.distance = 0;
-  }
-  get price() {
-    return this._price;
-  }
+//  }
+//   constructor(value) {
+//     this.speed = 0;
+//     this.price = value.price;
+//     this.maxSpeed = value.maxSpeed;
+//     this.isOn = false;
+//     this.distance = 0;
+//   }
+//   get price() {
+//     return this._price;
+//   }
   
-  set price(value) {
-    return this._price = value;
-  }
-  turnOn() {
+//   set price(value) {
+//     return this._price = value;
+//   }
+//   turnOn() {
 
-    this.isOn = true;
-  }
-  turnOff() {
-    this.isOn = false;
-    this.speed = 0;
-  }
-  accelerate(value) {
-    if ( this.speed + value <= this.maxSpeed) { 
-      this.speed += value;
-    }
-    else{this.speed = this.maxSpeed}
-  }
-  decelerate(value) {
-    if(this.speed - value  > 0){
-      this.speed -= value;
-    }
-    else {this.speed = 0}
-  }
-  drive(hours) {
-    if(this.isOn ===true){
-      this.distance += this.speed * hours;
-      }
-    // this.hours = hours
-  }
-}
+//     this.isOn = true;
+//   }
+//   turnOff() {
+//     this.isOn = false;
+//     this.speed = 0;
+//   }
+//   accelerate(value) {
+//     if ( this.speed + value <= this.maxSpeed) { 
+//       this.speed += value;
+//     }
+//     else{this.speed = this.maxSpeed}
+//   }
+//   decelerate(value) {
+//     if(this.speed - value  > 0){
+//       this.speed -= value;
+//     }
+//     else {this.speed = 0}
+//   }
+//   drive(hours) {
+//     if(this.isOn ===true){
+//       this.distance += this.speed * hours;
+//       }
+//     // this.hours = hours
+//   }
+// }
  
-const mustang = new Car({ maxSpeed: 200, price: 2000 });
-mustang.turnOn();
-mustang.accelerate(50);
-mustang.drive(2);
+// const mustang = new Car({ maxSpeed: 200, price: 2000 });
+// mustang.turnOn();
+// mustang.accelerate(50);
+// mustang.drive(2);
 
-console.log(Car.getSpecs(mustang));
-// 'maxSpeed: 200, speed: 50, isOn: true, distance: 100, price: 2000'
+// console.log(Car.getSpecs(mustang));
+// // 'maxSpeed: 200, speed: 50, isOn: true, distance: 100, price: 2000'
 
-mustang.decelerate(20);
-mustang.drive(1);
-mustang.turnOff();
+// mustang.decelerate(20);
+// mustang.drive(1);
+// mustang.turnOff();
 
-console.log(Car.getSpecs(mustang));
-// 'maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000'
+// console.log(Car.getSpecs(mustang));
+// // 'maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000'
 
-// console.log(mustang.price); // 2000
-mustang.price = 4000;
-// console.log(mustang.price); // 4000
+// // console.log(mustang.price); // 2000
+// mustang.price = 4000;
+// // console.log(mustang.price); // 4000
 
-const users = [
-  { name: 'Mango', isActive: true },
-  { name: 'Poly', isActive: false },
-  { name: 'Ajax', isActive: true },
-  { name: 'Chelsey', isActive: false },
-];
+// const users = [
+//   { name: 'Mango', isActive: true },
+//   { name: 'Poly', isActive: false },
+//   { name: 'Ajax', isActive: true },
+//   { name: 'Chelsey', isActive: false },
+// ];
 
-console.log(users.find(u => u.name === 'Ajax')); // 6
+// console.log(users.find(u => u.name === 'Ajax')); // 6
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+                                              // МОДУЛЬ 6 - Перебирающие методы масива 
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Пример метода
+
+/*
+ array.metod(сallbac(item, idx, arr))
+item - елемент масива на каждой итерации
+idx - индекст перебераемого елемента масива
+arr - весь масив
+ */
+
+
+//  >>>>>>>>
+/*
+* Метод forEach - array.forEach()
+* Поелементно перебирает оригинальный масив
+* Ничего не возвращает
+* Заменяет класический for, если не нужно прерывать цыкл.
+*/
+
+// const numbers = [13, 10, 5, 30];
+
+// numbers.forEach(function(item, idx, arr) {
+//   console.log(item)
+//   console.log(idx)
+//   console.log(arr)
+// });
+
+
+// >>>>>>>>>>
+/*
+* Метод map - array.map()
+* Поелементно перебирает оригинальный масив
+* Возвращает новый масив такой же длины
+*/
+
+// const numbers = [2, 10, 15, 30];
+
+// const mapNumbers = numbers.map(function(element) {
+
+//   return element *2
+// })
+
+// console.log(mapNumbers) //[4, 20, 30, 60]
+
+// еще пример:
+
+// const users = [
+//   { id: 101231, name: 'Mango', isActive: true, point: 1100},
+//   { id: 30102, name: 'Poly', isActive: false , point: 2000},
+//   { id: 30101, name: 'Ajax', isActive: true , point: 25000},
+//   { id: 16101, name: 'Jx', isActive: true , point: 300},
+//   { id: 12301, name: 'Sam', isActive: true , point: 1200},
+// ];
+
+// // ище пользователя по имени и изменяем point
+// const changUse = users.map(function (user) {
+   
+//   if (user.name === 'Ajax') {
+//     return { ...user, //Распыляем что бы сделать копию
+//       point: user.point + 1000
+//     }
+//   }
+//   // возвращаем все остальные елементы масива обекта что бы не било undefind
+//   return user 
+
+// })
+
+// console.log(changUse)
+
+
+// >>>>>>>>>>>>>>>>>>
+/* 
+* array.filter()
+* Переберает масив
+* Возвращает новый масив всех условий которые true 
+* Добавляет в возвращаемый масив элементы которые удовлетворяют условие
+*/
+
+// const numbers = [4, 5, 10, 15, 20, 25, 30]
+
+// const filter = numbers.filter(function (number) {
+ 
+//   return  number > 20
+
+// })
+
+// console.log(filter) // [25, 30]
+
+
+// Еще пример:
+
+// const users = [
+//   { id: 101231, name: 'Mango', isActive: true, point: 1100,},
+//   { id: 30102, name: 'Poly', isActive: false , point: 2000},
+//   { id: 30101, name: 'Ajax', isActive: true , point: 25000},
+//   { id: 16101, name: 'Jx', isActive: false , point: 300},
+//   { id: 12301, name: 'Sam', isActive: true , point: 1200},
+// ];
+
+// const usersActive = users.filter(function (user) {
+  
+//   if (user.isActive) {
+//     return user
+//   }
+// })
+
+// console.log(usersActive)
+
+
+// >>>>>>>>>>>>>>>>>>
+/* 
+*
+* array.find()
+* Переберает масив
+* Возвращает первый елемент удовлетворяющий условия или ubdefind
+* 
+*/
+
+
+//  const users = [
+//   { id: 101231, name: 'Mango', isActive: true, point: 1100,},
+//   { id: 30102, name: 'Poly', isActive: false , point: 2000},
+//   { id: 30101, name: 'Ajax', isActive: true , point: 25000},
+//   { id: 16101, name: 'Jx', isActive: false , point: 300},
+//   { id: 12301, name: 'Sam', isActive: true , point: 1200},
+// ];
+
+// const findId = users.find(function (userId) {
+   
+//   return userId.name === 'Jx'
+// })
+//  console.log(findId)
+
+
+//>>>> ТОт же пример стрелочной функцией
+// const findId = users.find(userId => userId.name === 'Jx')
+
+// console.log(findId) 
+
+
+
+// >>>>>>>>>>>>>>>>>>
+/* 
+*
+* array.every()
+* Переберает масив
+* Возвращает true если все елементы масива удовлетворяют условие
+* 
+*/
+
+
+// const users = [
+//   { id: 101231, name: 'Mango', isActive: true, point: 1100,},
+//   { id: 30102, name: 'Poly', isActive: false , point: 2000},
+//   { id: 30101, name: 'Ajax', isActive: true , point: 25000},
+//   { id: 16101, name: 'Jx', isActive: false , point: 300},
+//   { id: 12301, name: 'Sam', isActive: true , point: 1200},
+// ];
+
+// const metodEvery = users.every(function (user) {
+//   return user.point > 200
+// })
+
+// console.log(metodEvery) //true
+
+
+// >>>>>>>>>>>>>>>>>>
+/* 
+*
+* array.some()
+* Переберает масив
+* Возвращает true если  хотя бы один элемент масива удовлетворяют условие
+* 
+*/
+
+
+// const users = [
+//   { id: 101231, name: 'Mango', isActive: true, point: 1100,},
+//   { id: 30102, name: 'Poly', isActive: true , point: 2000},
+//   { id: 30101, name: 'Ajax', isActive: true , point: 25000},
+//   { id: 16101, name: 'Jx', isActive: false , point: 300},
+//   { id: 12301, name: 'Sam', isActive: true , point: 1200},
+// ];
+
+// const metodEvery = users.some(function (user) {
+//   return user.isActive === false
+// })
+
+// console.log(metodEvery) //true
+
+// const student = {
+//     name: 'John Doe',
+//     age: 16,
+//     scores: {
+//         maths: 74,
+//         english: 63,
+//         science: 85
+//         }
+// };
+// function displaySummary({ name, scores: { maths = 0, english = 0, science = 0 } }) {
+//     console.log('Hello, ' + name);
+//     console.log('Your Maths score is ' + maths);
+//     console.log('Your English score is ' + english);
+//     console.log('Your Science score is ' + science);
+// }
+
+// displaySummary(student);
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Задача с ДЗ - 1 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+// const users =  [
+//   "Moore Hensley",
+//   "Sharlene Bush",
+//   "Ross Vazquez",
+//   "Elma Head",
+//   "Carey Barr",
+//   "Blackburn Dotson",
+//   "Sheree Anthony",
+// ] 
+
+// const getUserNames = function (array) {
+//   array.map(function (element) {
+//     return  element
+//   })
+// }
+
+// console.log(getUserNames(users));
+
+// const object = {num : 2}
+// //function getNum (obj) { return obj.num; }
+// function getNum ({num}) { return num; }
+// console.log(getNum(object)) // 2
