@@ -2647,26 +2647,55 @@ arr - весь масив
 
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Задача с ДЗ - 1 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+/* map
 
+Получи массив имен всех пользователей(свойство name) используя деструктурирующее присваивание
+для параметра функции({ name }) без пробелов и переносов на новую строку.
+
+Используй только перебирающие методы массива которые не изменяют(не мутируют) исходный массив.
+  Т.е.нельзя использовать for, splice, push и т.п.мутирующие методы. */
 // const users =  [
-//   "Moore Hensley",
-//   "Sharlene Bush",
-//   "Ross Vazquez",
-//   "Elma Head",
-//   "Carey Barr",
-//   "Blackburn Dotson",
-//   "Sheree Anthony",
-// ] 
+//   {
+//     id: '701b29c3-b35d-4cf1-a5f6-8b12b29a5081',
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     skills: ['ipsum', 'lorem'],
+//     gender: 'male',
+//     age: 37,
+//   },
+//   {
+//     id: '7a3cbd18-57a1-4534-8e12-1caad921bda1',
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     skills: ['tempor', 'mollit', 'commodo', 'veniam', 'laborum'],
+//     gender: 'female',
+//     age: 34,
+//   }
+// ];
 
-// const getUserNames = function (array) {
-//   array.map(function (element) {
-//     return  element
-//   })
+// function converter(userObject) {     // Решение обычн. функ-ями без деструктуризации
+//   return userObject.name;
+// }
+// function getUserNames(users) {
+//   return users.map(converter);
 // }
 
+// const getUserNames = users => users.map(array => array.name) // Решение стрелочной фун-ей без деструктуризации
 // console.log(getUserNames(users));
 
-// const object = {num : 2}
-// //function getNum (obj) { return obj.num; }
-// function getNum ({num}) { return num; }
-// console.log(getNum(object)) // 2
+
+// const getUserNames = array => array.map(function ({ name }){  //Решение С ДЕСТРУКТУРИЗАЦИЕЙ гибридной полу-стрелочной полу-обычной функц.
+
+ 
+//   return name
+// })
+
+//  console.log(getUserNames(users));
