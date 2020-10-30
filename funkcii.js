@@ -2646,6 +2646,163 @@ arr - весь масив
 // displaySummary(student);
 
 
+
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+/* 
+*
+* array.reduce()
+* Переберает масив
+* Возвращает  Что угодно
+* Имеет особенность - это акумулятор , который записывается первым параметром
+* // accumulator - по умолчанию первое чило масива.
+*
+* С обьектом не работает, сначала нужно перевести в масив свойств.
+* С масивом обьектов работае как обычно
+*/
+
+//----- Задача --> Ищем самое маленькое число в масиве
+// const numbers = [5, 10, 15, 2, 30, 40]
+// // accumulator - по умолчанию первое чило масива.
+// const totalNumbers = numbers.reduce(function (accumulator, element) { 
+  
+//   if (element < accumulator) {
+//     accumulator = element
+//   }
+//   return accumulator
+// })
+
+// console.log(totalNumbers) //2
+
+/* 
+*
+*
+*
+*/
+
+//----- Задача --> Пощитать сумму всех чисел в масиве
+// const numbers = [5, 10, 5]
+// // accumulator - по умолчанию первое чило масива, но в данном случае присваеваем ему значение 0.
+// const totalNumbers = numbers.reduce(function (accumulator, element) { 
+  
+//  return   element + accumulator
+ 
+// }, 0)
+
+// console.log(totalNumbers) //20
+
+/* 
+*
+* ----- Задача --> - Считаем общую зарплату в обьекте
+*
+*/
+
+// const salary = {
+//   John: 1300,
+//   Sam: 2700,
+//   Gery: 1000
+// }
+// //  Переводим обьект salary в масив свойств и применяем reduce
+// const totalSalary = Object.values(salary).reduce(function (accum,elem) {
+  
+//   return accum + elem
+// },0)
+
+// console.log(totalSalary) //5000
+
+/* 
+*
+*
+*
+*
+ */
+// >>>>>>>>>>>>>>>>>   --- Задача  напиши функцию, которая будет иметь в себе функцию подсчета суммы очков масива обьектов.
+// const users = [
+//   { id: 101231, name: 'Mango', isActive: true, point: 1100},
+//   { id: 30102, name: 'Poly', isActive: false , point: 2000},
+//   { id: 30101, name: 'Ajax', isActive: true , point: 25000},
+//   { id: 16101, name: 'Jx', isActive: true , point: 300},
+//   { id: 12301, name: 'Sam', isActive: true , point: 1200},
+// ];
+
+// const cauntTotalPoint = function (allUsers) {
+    
+//   const total = allUsers.reduce(function (accam, elem) {
+//     return accam + elem.point
+//   }, 0)
+
+//   return total
+//   }
+  
+// console.log( cauntTotalPoint (users))
+
+
+/* 
+*
+*
+*
+*-   -   Задача. найди и верни значения всех скилов в одном масиве.
+*
+ */
+
+// const users = [
+//   { id: 101231, name: 'Mango', isActive: true, skills: ['html','css','piton']},
+//   { id: 30102, name: 'Poly', isActive: false ,skills: ['java', 'js']},
+//   { id: 30101, name: 'Ajax', isActive: true , skills: ['html','sql', 'MySQL']},
+//   { id: 16101, name: 'Jx', isActive: true , skills: ['css','java', 'js', 'NodeJS']},
+//   { id: 12301, name: 'Sam', isActive: true, skills: ['js', 'java'] },
+  
+// ];
+
+// const findSkills = users.reduce(function (acc, elem) {
+//   acc.push(...elem.skills)  
+  
+//  return acc
+
+// },[])
+
+// console.log(findSkills)  //['html','css','piton','html'...]
+
+
+// Задача. найди и верни значения всех скилов  полученных  из переменной findSkills в одном масиве.
+// Если елемент в масиве повторяеться его возвращаем только один раз
+// const sort = findSkills.reduce(function (acc, elem, i) {
+  
+//   if (findSkills.indexOf(elem)=== i) {
+     
+//     acc.push(elem)
+//   }
+//   return acc
+// }, [])
+// console.log(sort)
+
+
+// >>>>>>>>>>>>>
+
+// Задача , переменная findSkills находиться выше!!!
+/* На входе масив строк (строковых значений переменная findSkills). Нужно сделать обект  где будет указан
+счетчик сколько раз в масиве эти значение повторялись.
+ Пример:  {
+   html: 2, 
+   css: 2, 
+   piton: 1,
+    java: 3}
+ */
+
+// const tags = findSkills.reduce(function (acc, elem) {
+  
+//   if (acc.hasOwnProperty(elem)) {
+//     acc[elem] += 1;
+//    return  acc
+//   }
+//   acc[elem] = 1
+
+//   return acc
+// },{})
+
+// console.log(tags) //{html: 2, css: 2, piton: 1, java: 3, js: 3, …}
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Задача с ДЗ - 1 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 /* map
 
@@ -2700,6 +2857,117 @@ arr - весь масив
 
 //  console.log(getUserNames(users));
 
+// const users =  [
+//   {
+//     id: '701b29c3-b35d-4cf1-a5f6-8b12b29a5081',
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     skills: ['ipsum', 'lorem'],
+//     gender: 'male',
+//     age: 37,
+//   },
+//   {
+//     id: '7a3cbd18-57a1-4534-8e12-1caad921bda1',
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     skills: ['tempor', 'mollit', 'commodo', 'veniam', 'laborum'],
+//     gender: 'female',
+//     age: 34,
+//   },
+//   {
+//     id: '88beb2f3-e4c2-49f3-a0a0-ecf957a95af3',
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     skills: ['nulla', 'anim', 'proident', 'ipsum', 'elit'],
+//     gender: 'male',
+//     age: 24,
+//   },
+//   {
+//     id: '249b6175-5c30-44c6-b154-f120923736f5',
+//     name: 'Elma Head',
+//     email: 'elmahead@omatom.com',
+//     eyeColor: 'green',
+//     friends: ['Goldie Gentry', 'Aisha Tran'],
+//     isActive: true,
+//     balance: 2278,
+//     skills: ['adipisicing', 'irure', 'velit'],
+//     gender: 'female',
+//     age: 21,
+//   },
+//   {
+//     id: '334f8cb3-eb04-45e6-abf4-4935dd439b70',
+//     name: 'Carey Barr',
+//     email: 'careybarr@nurali.com',
+//     eyeColor: 'blue',
+//     friends: ['Jordan Sampson', 'Eddie Strong'],
+//     isActive: true,
+//     balance: 3951,
+//     skills: ['ex', 'culpa', 'nostrud'],
+//     gender: 'male',
+//     age: 27,
+//   },
+//   {
+//     id: '150b00fb-dd82-427d-9faf-2879ea87c695',
+//     name: 'Blackburn Dotson',
+//     email: 'blackburndotson@furnigeer.com',
+//     eyeColor: 'brown',
+//     friends: ['Jacklyn Lucas', 'Linda Chapman'],
+//     isActive: false,
+//     balance: 1498,
+//     skills: ['non', 'amet', 'ipsum'],
+//     gender: 'male',
+//     age: 38,
+//   },
+//   {
+//     id: 'e1bf46ab-7168-491e-925e-f01e21394812',
+//     name: 'Sheree Anthony',
+//     email: 'shereeanthony@kog.com',
+//     eyeColor: 'brown',
+//     friends: ['Goldie Gentry', 'Briana Decker'],
+//     isActive: true,
+//     balance: 2764,
+//     skills: ['lorem', 'veniam', 'culpa'],
+//     gender: 'female',
+//     age: 39,
+//   },
+// ];
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Задача с ДЗ - 2 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+// const getUsersWithEyeColor = (array, color) => array.filter(function (element) {  // решение гибрид + стрелочна + класическа функц
+//   return arr.eyeColor === color
+  
+// })
+
+// console.log(getUsersWithEyeColor(users, 'blue'));
+
+// // >>>>>>>> То же решение но с деструктуризацией параметра
+
+// const getUsersWithEyeColor = (array, color) => array.filter(function ({eyeColor}) { // То же решение но с деструктуризацией
+//   return eyeColor === color
+  
+// })
+
+// console.log(getUsersWithEyeColor(users, 'blue'));
+
+ // >>>>>>>> То же решение но стрелочной ФУНКЦИЕЙ 
+// const getUsersWithEyeColor = (array, color) => array.filter(({eyeColor})  => eyeColor === color)
+// console.log(getUsersWithEyeColor(users, 'blue'));
+ 
 const users =  [
   {
     id: '701b29c3-b35d-4cf1-a5f6-8b12b29a5081',
@@ -2736,70 +3004,27 @@ const users =  [
     skills: ['nulla', 'anim', 'proident', 'ipsum', 'elit'],
     gender: 'male',
     age: 24,
-  },
-  {
-    id: '249b6175-5c30-44c6-b154-f120923736f5',
-    name: 'Elma Head',
-    email: 'elmahead@omatom.com',
-    eyeColor: 'green',
-    friends: ['Goldie Gentry', 'Aisha Tran'],
-    isActive: true,
-    balance: 2278,
-    skills: ['adipisicing', 'irure', 'velit'],
-    gender: 'female',
-    age: 21,
-  },
-  {
-    id: '334f8cb3-eb04-45e6-abf4-4935dd439b70',
-    name: 'Carey Barr',
-    email: 'careybarr@nurali.com',
-    eyeColor: 'blue',
-    friends: ['Jordan Sampson', 'Eddie Strong'],
-    isActive: true,
-    balance: 3951,
-    skills: ['ex', 'culpa', 'nostrud'],
-    gender: 'male',
-    age: 27,
-  },
-  {
-    id: '150b00fb-dd82-427d-9faf-2879ea87c695',
-    name: 'Blackburn Dotson',
-    email: 'blackburndotson@furnigeer.com',
-    eyeColor: 'brown',
-    friends: ['Jacklyn Lucas', 'Linda Chapman'],
-    isActive: false,
-    balance: 1498,
-    skills: ['non', 'amet', 'ipsum'],
-    gender: 'male',
-    age: 38,
-  },
-  {
-    id: 'e1bf46ab-7168-491e-925e-f01e21394812',
-    name: 'Sheree Anthony',
-    email: 'shereeanthony@kog.com',
-    eyeColor: 'brown',
-    friends: ['Goldie Gentry', 'Briana Decker'],
-    isActive: true,
-    balance: 2764,
-    skills: ['lorem', 'veniam', 'culpa'],
-    gender: 'female',
-    age: 39,
-  },
-];
+  }]
 
-
-// const getUsersWithEyeColor = (array, color) => array.filter(function (element) {
-//   return arr.eyeColor === color
+const getUsersWithGender = (array, gender) => array.find(function ( elem ) {
+  let ret;
+  if (elem.gender === gender) {
+    ret = elem.name
+  }
+  // return ret.map(function (i) {
+  //   return ret
+  // }) 
+  return ret
+                      // Тут шото не получается
   
-// })
-//   // (arr => arr.eyeColor === color);
+});
 
-// console.log(getUsersWithEyeColor(users, 'blue'));
+console.log(getUsersWithGender(users, 'male'));
 
-const getUsersWithEyeColor = (array, color) => array.filter(function ({eyeColor}) {
-  return eyeColor === color
-  
-})
-  // (arr => arr.eyeColor === color);
+/* [
+  "Moore Hensley",
+  "Ross Vazquez",  
+  "Carey Barr",  
+  "Blackburn Dotson"  
+] */
 
-console.log(getUsersWithEyeColor(users, 'blue'));
